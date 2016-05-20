@@ -1,0 +1,32 @@
+$tile-background: #fff;
+
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  background: $tile-background;
+  border: 1px solid #eee;
+  height: auto;
+  transition: all .7s;
+
+  &:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
+  }
+
+  &.on {
+    background: blue;
+  }
+
+  .off {
+    background: darken($tile-background, 40%);
+  }
+}
+
+.tile-content {
+  max-width: 90%;
+  text-align: center;
+}

@@ -1,0 +1,33 @@
+meteor-base
+juliancwirko:postcss # replaces standard-minifier-css
+standard-minifier-js
+mongo
+tracker
+random
+check
+ecmascript
+accounts-base
+accounts-password
+email
+http
+reactive-var
+reactive-dict
+ddp-rate-limiter
+
+alanning:roles
+aldeed:collection2
+aldeed:simple-schema
+fourseven:scss
+kadira:flow-router
+meteorhacks:ssr
+meteorhacks:subs-manager
+std:accounts-basic
+std:accounts-ui
+tmeasday:publish-counts
+vsivsi:job-collection
+
+
+# percolate:synced-cron
+# percolate:migrations
+# ongoworks:mongo-tools
+# vsivsi:job-collection

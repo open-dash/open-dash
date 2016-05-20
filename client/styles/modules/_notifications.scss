@@ -1,0 +1,12 @@
+
+// Make sure top alert ends up
+// above Bootstrap fixed nav (z-index is 1030)
+.s-alert-box {
+  z-index: 1040;
+}
+
+// Center the text in top alerts
+.s-alert-top > .s-alert-box-inner {
+  width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,161 @@
+
+// sidebar color configs
+
+$sidenav-width: 250px;
+$sidenav-bg-color: #1e5180;
+$sidenav-brand-bg-color: darken($sidenav-bg-color, 5%);
+$sidenav-logo-text: #f6f6f6;
+$sidenav-link-text: #f6f6f6;
+$sidenav-link-text-hover: #fff;
+$sidenav-link-text-hover-bg: rgba(255, 255, 255, .2);
+
+
+#dash-wrapper {
+  max-width: 100%;
+  padding-left: 0;
+  transition: all .5s ease;
+
+  &.toggled {
+    padding-left: $sidenav-width;
+
+    #sidebar-wrapper {
+      width: $sidenav-width;
+    }
+
+    #dash-content-wrapper {
+      position: absolute;
+      margin-right: -$sidenav-width;
+    }
+  }
+
+  // fix an overflow issue with the apps table
+  #user-account {
+    max-width: 100%;
+  }
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: $sidenav-width;
+  width: 0;
+  height: 100%;
+  margin-left: -$sidenav-width;
+  overflow-y: auto;
+  background: $sidenav-bg-color;
+  transition: all .5s ease;
+}
+
+#dash-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: $sidenav-width;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li:not(.sidebar-brand) {
+    text-indent: 20px;
+    line-height: 40px;
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: $sidenav-link-text;
+      transition: all .5s;
+
+      &:hover,
+      &.active {
+        text-decoration: none;
+        color: $sidenav-link-text-hover;
+        background: $sidenav-link-text-hover-bg;
+      }
+
+      &:active,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
+    .sidebar-spacer {
+      height: 2em;
+    }
+  }
+
+  > .sidebar-brand {
+    height: 65px;
+    font-size: 1.5em;
+    line-height: 60px;
+    background: $sidenav-brand-bg-color;
+
+    a {
+      color: $sidenav-logo-text;
+
+      &:hover {
+        color: #fff;
+        background: none;
+      }
+    }
+
+    #logo-rocket {
+      max-width: 40px;
+      margin-left: .7em;
+      margin-right: .40em;
+      z-index: 1000;
+      background: $sidenav-logo-text;
+      border-radius: 50%;
+      transition: all .4s;
+      transform: rotate(35deg);
+
+      &:hover {
+        background: #fff;
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+
+#sidenav-toggle {
+  display: none;
+}
+
+@media(min-width: 768px) {
+  #dash-wrapper {
+    padding-left: $sidenav-width;
+
+    #sidebar-wrapper {
+      width: $sidenav-width;
+    }
+
+    #dash-content-wrapper {
+      padding: 20px;
+      position: relative;
+    }
+
+    &.toggled {
+      padding-left: 0;
+
+      #sidebar-wrapper {
+        width: 0;
+      }
+
+      #dash-content-wrapper {
+        position: relative;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  #sidenav-toggle {
+    display: block;
+    margin-bottom: 1em;
+  }
+}

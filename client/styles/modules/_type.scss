@@ -1,0 +1,17 @@
+body {
+  font-family: $font-sans;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+
+  &:hover, &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}

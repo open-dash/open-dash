@@ -1,0 +1,23 @@
+
+button, .btn {
+  transition: all .7s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.invite-user {
+    margin-bottom: 2rem;
+  }
+}
+
+.stacks-list-actions {
+
+  .btn {
+    margin-right: 10px;
+  }
+}
+
+.modal .modal-footer > .btn {
+  margin: 6px 8px;
+}

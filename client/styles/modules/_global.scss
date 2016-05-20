@@ -1,0 +1,40 @@
+
+body {
+  background: #ececec;
+  margin: 0;
+}
+
+a {
+  transition: color .7s;
+
+  &:hover {
+
+    &:not(.btn) {
+      color: darken($link-color, 15%);
+    }
+  }
+}
+
+.danger {
+  background: $danger-background-color;
+}
+
+.danger-text, .error {
+  color: $danger-text-color;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.horizontal-center {
+  justify-content: center;
+}
+
+.vertical-center {
+  align-self: center;
+}

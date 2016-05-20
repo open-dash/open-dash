@@ -1,0 +1,14 @@
+node_modules
+private/certs
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.sublime-project
+*.sublime-workspace
+.idea
+.DS_Store
