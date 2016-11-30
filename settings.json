@@ -1,0 +1,19 @@
+{
+  "defaultUsers": [
+    {
+      "email": "your.email@gmail.com",
+      "username": "admin",
+      "password": "admin",
+      "roles": ["admin", "superuser"]
+    }
+  ],
+  "siteTitle": "",
+  "adminEmail": "",
+  "mailUrl": "",
+  "lifxApiKey": "",
+  "awsKey": "",
+  "awsSecret": "",
+  "awsRegion": "",
+  "s3Bucket": "",
+  "segmentKey": ""
+}
