@@ -14,8 +14,11 @@ class SettingsPage extends Component {
     super(props);
 
     this.state = {
-      settings: this.props.settings
+      settings: props.settings
     };
+
+    this.handleStateChange = this.handleStateChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleStateChange(e) {
@@ -31,8 +34,8 @@ class SettingsPage extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { settings } = this.state;
     const { update } = this.props;
+    const { settings } = this.state;
     update(settings);
   }
 
