@@ -13,7 +13,7 @@
  * using different curve fit functions. The performance cost of the two
  * approaches is very similar and in general the second algorithm is preferred.
  *
- * NOTE The approximations used are suitable for photo-mainpulation and other
+ * NOTE The approximations used are suitable for photo-manipulation and other
  * non-critical uses. They are not suitable for medical or other high accuracy
  * use cases.
  *
