@@ -12,3 +12,5 @@ lib-cov
 *.sublime-workspace
 .idea
 .DS_Store
+
+settings.*.json
