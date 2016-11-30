@@ -3,11 +3,12 @@
   "env": {
     "browser": true,
     "node": true,
+    "es6": true,
     "meteor": true
   },
-  // "plugins": [
-  //   "react"
-  // ],
+  "plugins": [
+    "react"
+  ],
   "ecmaFeatures": {
     "arrowFunctions": true,
     "blockBindings": true,
@@ -45,11 +46,12 @@
     "no-shadow": 2, // http://eslint.org/docs/rules/no-shadow
     "no-shadow-restricted-names": 2, // http://eslint.org/docs/rules/no-shadow-restricted-names
     "no-const-assign": 2, // http://eslint.org/docs/rules/no-const-assign
-    // "no-unused-vars": [2, { // http://eslint.org/docs/rules/no-unused-vars
-    //   "vars": "local",
-    //   "args": "none"
-    // }],
+    "prefer-const": [2, { "ignoreReadBeforeAssign": false }], // http://eslint.org/docs/rules/prefer-const
     "no-use-before-define": [2, "nofunc"], // http://eslint.org/docs/rules/no-use-before-define
+    "no-unused-vars": [2, { // http://eslint.org/docs/rules/no-unused-vars
+      "vars": "local",
+      "args": "after-used"
+    }],
 
     /**
      * Possible errors
@@ -79,39 +81,39 @@
     /**
      * JSX / React
      */
-    // "jsx-quotes": [2, "prefer-double"], // http://eslint.org/docs/rules/jsx-quotes
-    // /*"react/no-deprecated": 1,*/
-    // "react/display-name": 1,
-    // "react/forbid-prop-types": 1,
-    // "react/jsx-boolean-value": [1, "always"],
-    // "react/jsx-closing-bracket-location": 1,
-    // "react/jsx-curly-spacing": 1,
-    // "react/jsx-indent-props": [1, 2],
-    // "react/jsx-max-props-per-line": [1, {
-    //   "maximum": 4
-    // }],
-    // /*"react/jsx-no-bind": 1,*/
-    // "react/jsx-no-duplicate-props": 1,
-    // "react/jsx-no-literals": 1,
-    // "react/jsx-no-undef": 1,
-    // "react/jsx-sort-prop-types": 1,
-    // "react/jsx-sort-props": 1,
-    // "react/jsx-uses-react": 1,
-    // "react/jsx-uses-vars": 1,
-    // "react/no-danger": 1,
-    // "react/no-did-mount-set-state": 1,
-    // "react/no-did-update-set-state": 1,
-    // "react/no-direct-mutation-state": 1,
-    // "react/no-multi-comp": 1,
-    // "react/no-set-state": 1,
-    // "react/no-unknown-property": 1,
-    // "react/prefer-es6-class": 1,
-    // "react/prop-types": 1,
-    // "react/react-in-jsx-scope": 0,
-    // "react/require-extension": 1,
-    // "react/self-closing-comp": 1,
-    // "react/sort-comp": 1,
-    // "react/wrap-multilines": 1,
+    "jsx-quotes": [2, "prefer-single"], // http://eslint.org/docs/rules/jsx-quotes
+    "react/no-deprecated": 1,
+    "react/display-name": 1,
+    "react/forbid-prop-types": 0,
+    "react/jsx-boolean-value": 0,
+    "react/jsx-closing-bracket-location":  [1, "after-props"],
+    "react/jsx-curly-spacing": 1,
+    "react/jsx-indent-props": [1, 2],
+    "react/jsx-max-props-per-line": [1, {
+      "maximum": 4
+    }],
+    "react/jsx-no-bind": 1,
+    "react/jsx-no-duplicate-props": 1,
+    "react/jsx-no-literals": 0,
+    "react/jsx-no-undef": 1,
+    "react/sort-prop-types": 1,
+    "react/jsx-sort-props": 0,
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1,
+    "react/no-danger": 1,
+    "react/no-did-mount-set-state": 1,
+    "react/no-did-update-set-state": 1,
+    "react/no-direct-mutation-state": 1,
+    "react/no-multi-comp": 1,
+    "react/no-set-state": 0,
+    "react/no-unknown-property": 1,
+    "react/prefer-es6-class": 1,
+    "react/prop-types": 1,
+    "react/react-in-jsx-scope": 0,
+    "react/require-extension": 1,
+    "react/self-closing-comp": 1,
+    "react/sort-comp": 1,
+    "react/wrap-multilines": 1,
 
     /**
      * Best practices
@@ -150,7 +152,7 @@
     "no-sequences": 2, // http://eslint.org/docs/rules/no-sequences
     "no-throw-literal": 2, // http://eslint.org/docs/rules/no-throw-literal
     "no-with": 2, // http://eslint.org/docs/rules/no-with
-    "radix": 2, // http://eslint.org/docs/rules/radix
+    "radix": 0, // http://eslint.org/docs/rules/radix
     "vars-on-top": 2, // http://eslint.org/docs/rules/vars-on-top
     "wrap-iife": [2, "any"], // http://eslint.org/docs/rules/wrap-iife
     "yoda": 2, // http://eslint.org/docs/rules/yoda
@@ -159,17 +161,19 @@
       "ignoreUrls": true
     }], // http://eslint.org/docs/rules/max-len
     "valid-jsdoc": 2, // http://eslint.org/docs/rules/valid-jsdoc
-    "quote-props": [2, "consistent-as-needed"], // http://eslint.org/docs/rules/quote-props
+    "quote-props": [2, "as-needed"], // http://eslint.org/docs/rules/quote-props
 
     /**
      * Style
      */
-    "indent": [2, 2], // http://eslint.org/docs/rules/indent
+    "indent": [2, 2, { "SwitchCase": 1 }], // http://eslint.org/docs/rules/indent
     "brace-style": [2, // http://eslint.org/docs/rules/brace-style
       "1tbs", {
         "allowSingleLine": true
       }
     ],
+    "object-curly-spacing": [2, "always"], // http://eslint.org/docs/rules/object-curly-spacing
+    "array-bracket-spacing": [2, "never"], // http://eslint.org/docs/rules/array-bracket-spacing
     "quotes": [
       2, "single", "avoid-escape" // http://eslint.org/docs/rules/quotes
     ],
@@ -197,10 +201,10 @@
     "no-array-constructor": 2, // http://eslint.org/docs/rules/no-array-constructor
     "no-spaced-func": 2, // http://eslint.org/docs/rules/no-spaced-func
     "no-trailing-spaces": 2, // http://eslint.org/docs/rules/no-trailing-spaces
-    // "no-extra-parens": 2, // http://eslint.org/docs/rules/no-extra-parens
+    "no-extra-parens": 0, // http://eslint.org/docs/rules/no-extra-parens
     "no-underscore-dangle": 0, // http://eslint.org/docs/rules/no-underscore-dangle
     "one-var": [2, "never"], // http://eslint.org/docs/rules/one-var
-    // "padded-blocks": [2, "always"], // http://eslint.org/docs/rules/padded-blocks
+    "padded-blocks": 0, // http://eslint.org/docs/rules/padded-blocks
     "semi": [2, "always"], // http://eslint.org/docs/rules/semi
     "semi-spacing": [2, { // http://eslint.org/docs/rules/semi-spacing
       "before": false,
@@ -208,7 +212,7 @@
     }],
     "space-before-blocks": 2, // http://eslint.org/docs/rules/space-before-blocks
     "space-before-function-paren": [2, {
-      "anonymous": "never",
+      "anonymous": "always",
       "named": "never"
     }], // http://eslint.org/docs/rules/space-before-function-paren
     "space-infix-ops": 2, // http://eslint.org/docs/rules/space-infix-ops
