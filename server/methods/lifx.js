@@ -1,10 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { check, Match } from 'meteor/check';
 import { Roles } from 'meteor/alanning:roles';
-import { Settings } from '/lib/collections';
+import { Devices, Settings } from '/lib/collections';
 import { Color, Lifx, Logger } from '/server/api';
 
-export default function() {
+export default function () {
 
   Meteor.methods({
     'lifx/listLights'(selector) {
@@ -65,14 +65,23 @@ export default function() {
         throw new Meteor.Error(msg);
       }
 
-      logger.info(`Toggled power for ${selector}`);
+      const { results } = res.data;
+
+      results.forEach((light) => {
+        if (light.status === 'ok') {
+          const device = Devices.findOne({ id: light.id });
+
+          Devices.update({ id: light.id }, {
+            $set: {
+              power: device.power === 'on' ? 'off' : 'on'
+            }
+          });
+
+          logger.info(`Toggled power for ${device.label}`);
+        }
+      });
 
       return res.data;
-    },
-
-
-    'color'(num) {
-      Logger.info(Color.kelvinToRGB(num));
     }
   });
 

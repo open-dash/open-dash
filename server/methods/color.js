@@ -1,9 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
-import { Roles } from 'meteor/alanning:roles';
 import { Color, Logger } from '/server/api';
 
-export default function() {
+export default function () {
 
   Meteor.methods({
 
@@ -16,11 +15,7 @@ export default function() {
 
       check(kelvin, Match.OneOf(String, Number));
 
-      // if (!Roles.userIsInRole(this.userId, 'admin')) {
-      //   const err = 'AUTH ERROR: Action not allowed!';
-      //   logger.error(err);
-      //   throw new Meteor.Error(err);
-      // }
+      logger.info('Converting Kelvin to RGB');
 
       return Color.kelvinToRGB(kelvin);
     },
@@ -39,11 +34,7 @@ export default function() {
         b: Match.OneOf(String, Number)
       });
 
-      // if (!Roles.userIsInRole(this.userId, 'admin')) {
-      //   const err = 'AUTH ERROR: Action not allowed!';
-      //   logger.error(err);
-      //   throw new Meteor.Error(err);
-      // }
+      logger.info('Converting RGB to Kelvin');
 
       return Color.rgbToKelvin(rgb);
     }
