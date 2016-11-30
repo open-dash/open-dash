@@ -1,22 +1,23 @@
+// NPM Packages
+@import "{}/node_modules/ladda/css/ladda.scss";
 
-//////////////////////////////
-// Launchdock Custom Styles //
-//////////////////////////////
+@import "vars";
+@import "{}/node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-@import "vars",
-        "modules/colors",
-        "modules/badges",
+///////////////////
+// Custom Styles //
+///////////////////
+
+@import "modules/accounts",
         "modules/buttons",
+        "modules/colors",
         "modules/global",
         "modules/layout",
         "modules/loader",
         "modules/navbar",
         "modules/notifications",
         "modules/sidebar",
-        "modules/tooltips",
         "modules/tiles",
+        "modules/tooltips",
         "modules/type",
         "modules/users";
-
-// NPM Packages
-@import "{}/node_modules/ladda/css/ladda.scss";
