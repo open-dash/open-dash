@@ -17,9 +17,9 @@ $tile-background: #fff;
     padding-top: 100%;
   }
 
-  &.on {
-    background: blue;
-  }
+  // &.on {
+  //   background: blue;
+  // }
 
   .off {
     background: darken($tile-background, 40%);

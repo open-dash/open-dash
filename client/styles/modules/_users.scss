@@ -1,14 +1,15 @@
 
 .user-info {
   padding: 2em 1em;
+}
 
-  .avatar {
-    margin-bottom: 1em;
-  }
+.change-email {
+  font-size: .8em;
+  font-style: italic;
+  text-decoration: underline;
+  padding-left: 1em;
 
-  .avatar-large {
-    width: 100px;
-    min-width: 100px;
-    height: 100px;
+  &:hover {
+    cursor: pointer;
   }
 }

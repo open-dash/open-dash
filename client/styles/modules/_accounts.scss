@@ -1,0 +1,14 @@
+$accounts-ui-color: #355681;
+
+.accounts-ui {
+  border: solid 3px $accounts-ui-color;
+  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  button[type="submit"] {
+    background-color: darken($accounts-ui-color, 5%);
+
+    &:hover, &:active, &:focus {
+      background-color: lighten($accounts-ui-color, 15%);
+    }
+  }
+}
