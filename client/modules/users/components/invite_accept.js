@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Row, Col, Panel, Button } from 'react-bootstrap';
+import Helmet from 'react-helmet';
+import { Row, Col, Panel, Button } from 'react-bootstrap';
 
 class InviteAccept extends React.Component {
 
@@ -21,6 +22,7 @@ class InviteAccept extends React.Component {
 
     return (
       <Row>
+        <Helmet title={`Accept Invite - ${invite.email}`} />
         <Col md={4} mdOffset={4}>
           <Panel>
             <h4 className='text-center'>Please choose a password.</h4>
@@ -28,7 +30,7 @@ class InviteAccept extends React.Component {
             <form className='sign-up-form' onSubmit={this.handleSubmit.bind(this)}>
               <div className='form-group'>
                 <label>Username</label>
-                <input ref='username' type='text' className='form-control' autofocus />
+                <input ref='username' type='text' className='form-control' />
               </div>
               <div className='form-group'>
                 <label>Email</label>
@@ -55,6 +57,7 @@ class InviteAccept extends React.Component {
   renderInviteUsed() {
     return (
       <Row>
+        <Helmet title='Invalid Invite: link already used' />
         <Col md={8} mdOffset={2}>
           <Panel>
             <h5 className='text-center'>
@@ -69,6 +72,7 @@ class InviteAccept extends React.Component {
   renderLinkInvalid() {
     return (
       <Row>
+        <Helmet title='Invalid Invite: link not found' />
         <Col md={8} mdOffset={2}>
           <Panel>
             <h5 className='text-center'>
@@ -96,8 +100,8 @@ class InviteAccept extends React.Component {
 }
 
 InviteAccept.propTypes = {
-  invite: React.PropTypes.object,
-  error: React.PropTypes.string
+  error: React.PropTypes.string,
+  invite: React.PropTypes.object
 };
 
 export default InviteAccept;

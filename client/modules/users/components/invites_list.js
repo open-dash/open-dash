@@ -1,17 +1,17 @@
 import React from 'react';
-import { Grid, Row, Col, Panel, Table, Button } from 'react-bootstrap';
+import { Row, Col, Panel, Table, Button } from 'react-bootstrap';
 import InviteNew from '../containers/invite_new';
 import moment from 'moment';
 
 class InvitesList extends React.Component {
 
-  handleRevokeInvite(id) {
+  revoke(id) {
     const { revokeInvite } = this.props;
     revokeInvite(id);
   }
 
   render() {
-    const { invites, canRevoke } = this.props;
+    const { invites } = this.props;
 
     return (
       <Row>
@@ -19,7 +19,7 @@ class InvitesList extends React.Component {
           <Panel>
             <Row>
               <Col sm={12}>
-                <h3>Pending Invites</h3>
+                <h3>Invitations <small className='text-muted'>({'openInviteCount'})</small></h3>
                 <hr/>
                 <InviteNew />
                 <br/>
@@ -48,14 +48,12 @@ class InvitesList extends React.Component {
                               <small>({moment(invite.createdAt).fromNow()})</small>
                             </td>
                             <td>
-                              {canRevoke ?
-                                <Button
-                                  bsStyle='danger'
-                                  className='revoke-invite'
-                                  onClick={this.handleRevokeInvite.bind(this, invite._id)}>
-                                  Revoke
-                                </Button>
-                                : null}
+                              <Button
+                                bsStyle='danger'
+                                className='revoke-invite'
+                                onClick={this.revoke.bind(this, invite._id)}>
+                                Revoke
+                              </Button>
                             </td>
                           </tr>
                         );
@@ -73,5 +71,10 @@ class InvitesList extends React.Component {
     );
   }
 }
+
+InvitesList.propTypes = {
+  invites: React.PropTypes.array.isRequired,
+  revokeInvite: React.PropTypes.func.isRequired
+};
 
 export default InvitesList;

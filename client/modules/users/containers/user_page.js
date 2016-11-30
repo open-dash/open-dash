@@ -1,23 +1,26 @@
-import { useDeps, composeAll, composeWithTracker } from 'mantra-core';
+import { composeWithTracker, composeAll } from 'react-komposer';
+import { useDeps } from 'react-simple-di';
 import loading from '/client/modules/core/components/loading';
 import UserPage from '../components/user_page';
 
 export const composer = ({ context }, onData) => {
-  const { Meteor, Collections, FlowRouter, LocalState } = context();
+  const { Meteor, Users, FlowRouter, LocalState } = context();
   const userId = FlowRouter.getParam('id');
 
   if (Meteor.subscribe('user-account', userId).ready()) {
-    const user = Collections.Users.find(userId).fetch()[0];
+    const user = Users.find(userId).fetch()[0];
     const currentUser = Meteor.user();
     const isAdmin = Roles.userIsInRole(currentUser._id, 'superuser');
     const canEdit = isAdmin || userId === currentUser._id;
-    const error = LocalState.get('PASSWORD_CHANGE_ERROR');
-    onData(null, { user, canEdit, error });
+    const emailError = LocalState.get('EMAIL_CHANGE_ERROR');
+    const passwordError = LocalState.get('PASSWORD_CHANGE_ERROR');
+    onData(null, { user, canEdit, emailError, passwordError });
   }
 };
 
 export const depsMapper = (context, actions) => ({
   context: () => context,
+  changeEmail: actions.users.changeEmail,
   changePassword: actions.users.changePassword
 });
 

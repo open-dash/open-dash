@@ -1,21 +1,34 @@
 export default {
 
-  sendInvite({ Meteor, Notify }, email) {
-    if (!email) {
-      Notify.warn('Please choose an email!');
-      return;
-    }
+  sendInvite({ Meteor, Roles, Notify }, email, role) {
+    const isManager = Roles.userIsInRole(Meteor.userId(), 'manager');
 
-    // only one role right now, so select automatically
-    const role = 'admin';
+    const options = {
+      email,
+      role: isManager ? 'customer' : role
+    };
 
-    Meteor.call('sendUserInvite', { email, role }, (err) => {
-      if (err) {
-        Notify.error(err.error);
+    if (options.email && options.role) {
+      if (options.role === 'customer') {
+        Meteor.call('sendReactionInvite', options, (err) => {
+          if (err) {
+            Notify.error(err.error);
+          } else {
+            Notify.success('Invitation sent!');
+          }
+        });
       } else {
-        Notify.success('Invitation sent!');
+        Meteor.call('sendUserInvite', options, (err) => {
+          if (err) {
+            Notify.error(err.error);
+          } else {
+            Notify.success('Invitation sent!');
+          }
+        });
       }
-    });
+    } else {
+      Notify.warn('Please set an email and at least one role!');
+    }
   },
 
   acceptInvite({ Meteor, FlowRouter, Notify, LocalState }, options) {
@@ -63,12 +76,14 @@ export default {
       title: 'Are you sure?',
       text: 'There\'s no going back!'
     }, () => {
-      Meteor.call('revokeInvitation', inviteId, (err, res) => {
+      Meteor.call('revokeInvitation', inviteId, (err) => {
         if (err) {
           Alert.error({
-            title: 'Oops!',
-            text: `Something went wrong revoking the invite. <br> ${err}`
+            title: 'Error!',
+            text: err.reason
           });
+        } else {
+          Notify.success('Invitation revoked!', 'top-right');
         }
       });
     });

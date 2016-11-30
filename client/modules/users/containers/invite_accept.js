@@ -1,12 +1,13 @@
-import { useDeps, composeAll, composeWithTracker } from 'mantra-core';
+import { composeWithTracker, composeAll } from 'react-komposer';
+import { useDeps } from 'react-simple-di';
 import loading from '/client/modules/core/components/loading';
 import InviteAccept from '../components/invite_accept';
 
 export const composer = ({ context, token }, onData) => {
-  const { Meteor, Collections, LocalState } = context();
+  const { Meteor, Invitations, LocalState } = context();
 
   if (Meteor.subscribe('invite', token).ready()) {
-    const invite = Collections.Invitations.find({ token }).fetch()[0];
+    const invite = Invitations.find({ token }).fetch()[0];
     const error = LocalState.get('ACTIVATE_INVITE_ERROR');
     onData(null, { invite, error });
   }

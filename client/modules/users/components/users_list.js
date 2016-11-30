@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Row, Col, Panel, Table, Button, ButtonToolbar } from 'react-bootstrap';
 import Helmet from 'react-helmet';
+import { Grid, Row, Col, Panel, Table, Button, ButtonToolbar } from 'react-bootstrap';
 import InvitesList from '../containers/invites_list';
 
 class UsersList extends React.Component {
@@ -16,13 +16,13 @@ class UsersList extends React.Component {
 
     return (
       <Grid fluid={true}>
-        <Helmet title='Users'/>
+        <Helmet title='Users' />
         <Row>
-          <Col sm={10} smOffset={1}>
+          <Col md={10} mdOffset={1}>
             <Panel>
               <h3>Active Users</h3>
               <hr/>
-              <Table bordered className='users-table'>
+              <Table bordered responsive className='users-table'>
                 <thead>
                   <tr>
                     <th className='text-center'>Username</th>
@@ -49,11 +49,9 @@ class UsersList extends React.Component {
                         </td>
                         <td>
                           <ButtonToolbar>
-                            <a href={`/users/${user._id}`}>
-                              <Button bsStyle='primary'>
-                                Profile
-                              </Button>
-                            </a>
+                            <Button bsStyle='primary' href={`/users/${user._id}`}>
+                              Profile
+                            </Button>
                             {canDelete(user._id) ?
                               <Button
                                 bsStyle='danger'
@@ -79,10 +77,11 @@ class UsersList extends React.Component {
 }
 
 UsersList.propTypes = {
+  canDelete: React.PropTypes.func.isRequired,
   context: React.PropTypes.func.isRequired,
   deleteUser: React.PropTypes.func.isRequired,
-  users: React.PropTypes.array.isRequired,
-  invites: React.PropTypes.array.isRequired
+  invites: React.PropTypes.array.isRequired,
+  users: React.PropTypes.array.isRequired
 };
 
 export default UsersList;

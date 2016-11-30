@@ -6,8 +6,7 @@ class InviteNew extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
-      errors: null
+      showModal: false
     };
   }
 
@@ -17,16 +16,17 @@ class InviteNew extends React.Component {
 
   sendInvite(e) {
     e.preventDefault();
-
     const { sendInvite } = this.props;
-    const { email } = this.refs;
+    const { email, role } = this.refs;
 
     if (!email.value) {
       this.setState({ error: 'Please choose an email.' });
       return;
     }
 
-    sendInvite(email.value);
+    const roleValue = role.value || 'manager';
+
+    sendInvite(email.value, roleValue);
     this.setState({ showModal: false });
   }
 
@@ -36,7 +36,7 @@ class InviteNew extends React.Component {
 
   renderError(error) {
     return (
-      <div className='error'>
+      <div className='error text-center'>
         {error}
       </div>
     );
@@ -62,13 +62,22 @@ class InviteNew extends React.Component {
             <form id='send-invite-form' onSubmit={this.sendInvite.bind(this)}>
               <div className='form-group'>
                 <label>Email address</label>
-                {error ? this.renderError(error) : null}
                 <input
                   ref='email'
                   type='email'
                   className='form-control'
                   name='invite-user-email'
                   onChange={this.clearError.bind(this)}/>
+                {error ? this.renderError(error) : null}
+              </div>
+              <div className='form-group'>
+                <label>Role</label>
+                <select ref='role' name='invite-user-role' className='form-control'>
+                  <option value=''>Select a role...</option>
+                  <option value='admin'>Admin</option>
+                  <option value='manager'>Manager</option>
+                  <option value='customer'>Customer</option>
+                </select>
               </div>
             </form>
           </Modal.Body>
