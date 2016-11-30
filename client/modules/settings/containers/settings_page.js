@@ -1,6 +1,6 @@
 import { useDeps, composeAll, composeWithTracker, compose } from 'mantra-core';
-import loading from '/client/modules/core/components/loading.jsx';
-import SettingsPage from '../components/settings_page.jsx';
+import loading from '/client/modules/core/components/loading';
+import SettingsPage from '../components/settings_page';
 
 export const composer = ({ context }, onData) => {
   const { Meteor, Collections } = context();

@@ -6,7 +6,7 @@ export const composer = ({ context }, onData) => {
   const { Meteor, Collections } = context();
   const { Settings } = Collections;
 
-  const siteTitle = Settings.get('siteTitle', 'Wally');
+  const siteTitle = Settings.get('siteTitle');
   const user = Meteor.user();
 
   onData(null, { siteTitle, user });

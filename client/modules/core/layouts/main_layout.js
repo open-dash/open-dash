@@ -1,13 +1,13 @@
 import React from 'react';
 import SideNav from '../containers/side_nav';
 import Alert from 'react-s-alert';
-import Helmet from 'react-helmet';
+import Header from '../components/header';
 
 class MainLayout extends React.Component {
 
   constructor(props) {
     super(props);
-
+    this.toggleSidebar = this.toggleSidebar.bind(this);
     this.state = {
       sidebarToggled: false
     };
@@ -33,28 +33,14 @@ class MainLayout extends React.Component {
 
     return (
       <main className='app-root'>
-        <Helmet
-          meta={[{
-            charset: 'utf-8'
-          }, {
-            name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0'
-          }]}
-          defaultTitle={siteTitle}
-          titleTemplate={`${siteTitle} | %s`}
-          script={[{
-            type: 'text/javascript',
-            src: 'https://use.typekit.net/wie4qln.js'
-          }, {
-            type: 'text/javascript',
-            innerHTML: 'try{Typekit.load({ async: true });}catch(e){}'
-          }]}
-        />
+        <Header title={siteTitle}/>
         <div id='dash-wrapper' className={this.state.sidebarToggled ? 'toggled' : null}>
           <SideNav/>
           <main id='dash-content-wrapper' className='main-content'>
-            <button id='sidenav-toggle' className='btn btn-default'
-                    onClick={this.toggleSidebar.bind(this)}>
+            <button
+              id='sidenav-toggle'
+              className='btn btn-default'
+              onClick={this.toggleSidebar}>
               Menu
             </button>
             {this.props.content()}
