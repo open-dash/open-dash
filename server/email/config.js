@@ -20,7 +20,7 @@ export default function () {
 
   Accounts.emailTemplates.enrollAccount.html = (user, url) => {
     SSR.compileTemplate('admin-enroll', Assets.getText('server/templates/enrollment.html'));
-    let html = SSR.render('admin-enroll', { url });
+    let html = SSR.render('admin-enroll', { siteTitle, url });
     return html;
   };
 
