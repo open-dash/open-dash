@@ -71,7 +71,7 @@ Now open your new `settings.dev.json` file and add any desired users or settings
 }
 ```
 
-**Run**
+### Run
 
 ```sh
 # start the app and specify your settings file
