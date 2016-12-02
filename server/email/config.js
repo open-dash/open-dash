@@ -4,7 +4,7 @@ export default function () {
   /**
    * Custom email configs
    */
-  const siteTitle = Settings.get('siteTitle', 'Wally');
+  const siteTitle = Settings.get('siteTitle', 'HomeDash');
   const fromEmail = Settings.get('adminEmail', 'admin@localhost');
 
 
