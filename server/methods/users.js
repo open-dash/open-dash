@@ -128,13 +128,12 @@ export default function () {
       Invitations.insert(options);
 
       const url = Meteor.absoluteUrl() + 'invite/' + options.token;
-      const emailHtml = 'email/templates/admin-invitation.html';
+      const emailHtml = `email/templates/${options.role}-invitation.html`;
+      const siteTitle = Settings.get('siteTitle', 'OpenDash');
+      const adminEmail = Settings.get('adminEmail', 'invites@no-reply.com');
 
       SSR.compileTemplate('user-invite', Assets.getText(emailHtml));
-      const content = SSR.render('user-invite', { url: url });
-
-      const siteTitle = Settings.get('siteTitle', 'PW Video Manager');
-      const adminEmail = Settings.get('adminEmail', 'invites@patientwisdom.com');
+      const content = SSR.render('user-invite', { siteTitle, url });
 
       const emailOpts = {
         to: options.email,
