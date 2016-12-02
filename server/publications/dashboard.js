@@ -10,6 +10,10 @@ export default function () {
       return this.ready();
     }
 
+    if (!Settings.get('lifxApiKey')) {
+      return this.ready();
+    }
+
     const lifx = new Lifx();
 
     const poll = () => {
@@ -19,7 +23,7 @@ export default function () {
         res = lifx.listLights();
       } catch(e) {
         Logger.error(e, 'Lifx API error');
-        throw new Meteor.Error(e);
+        throw new Error(e);
       }
 
       res.data.forEach((doc) => {
@@ -33,8 +37,8 @@ export default function () {
       });
     };
 
-    // poll the API every 5 secs
-    const interval = Meteor.setInterval(poll, 5000);
+    // poll the API every 20 secs
+    const interval = Meteor.setInterval(poll, 20000);
 
     this.onStop(() => {
       Meteor.clearInterval(interval);
