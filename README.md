@@ -25,7 +25,7 @@ mongo:
 
 Now you can start the app and database by running the following command from the same directory as your `docker-compose.yml`.
 
-```
+```sh
 docker-compose up -d
 ```
 

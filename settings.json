@@ -11,5 +11,6 @@
   "adminEmail": "",
   "mailUrl": "",
   "lifxApiKey": "",
-  "segmentKey": ""
+  "segmentKey": "",
+  "slackWebhookUrl": ""
 }

@@ -43,6 +43,7 @@ export default function () {
       'siteTitle',
       'adminEmail',
       'mailUrl',
+      'lifxApiKey',
       'awsKey',
       'awsSecret',
       'awsRegion',
