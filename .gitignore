@@ -1,6 +1,3 @@
-node_modules
-private/certs
-lib-cov
 *.seed
 *.log
 *.csv
@@ -12,6 +9,9 @@ lib-cov
 *.sublime-workspace
 .idea
 .DS_Store
+
+node_modules
+private/certs
 
 docker-compose.*.yml
 settings.*.json
