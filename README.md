@@ -2,11 +2,40 @@
 
 An open source realtime dashboard to view/control all of your home automation toys.
 
-## Setup
+## Run
 
-Before cloning this project, make sure you have installed all of the dependencies for your operating system. For more info, see the [install docs](docs/installation.md).
+HomeDash can be deployed with [Docker](https://docker.com) and [Docker Compose](https://docs.docker.com/compose/overview/). See [Docker install docs](https://docs.docker.com/engine/installation/) for your platform.
 
-Once you've installed the dependencies for your OS, you're ready to install HomeDash. Note that the instructions below are specifically for local development/testing. Docker is used for production deployments and the steps, while similar, are quite a bit different. Production deployment details for various platforms coming soon.
+To launch an official prebuilt image of HomeDash, create a docker-compose.yml and add the following:
+
+```
+homedash:
+  image: jshimko/homedash:latest
+  links:
+    - mongo
+  ports:
+    - "80:3000"
+  environment:
+    MONGO_URL: "mongodb://mongo:27017/homedash"
+
+mongo:
+  image: mongo:latest
+  command: mongod --storageEngine=wiredTiger
+```
+
+Now you can start the app and database by running the following command from the same directory as your `docker-compose.yml`.
+
+```
+docker-compose up -d
+```
+
+...and the app should be available at http://localhost
+
+## Development
+
+Before cloning this project to work with it locally or build from source, make sure you have installed all of the dependencies for your operating system. For more info, see the [install docs](docs/installation.md).
+
+Once you've installed the dependencies for your OS, you're ready to download, build, and run HomeDash. Note that the instructions below are specifically for local development/testing. Docker should be used for production deployments. More production deployment details for various platforms coming soon.
 
 ### Install
 
