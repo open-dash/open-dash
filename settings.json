@@ -4,16 +4,12 @@
       "email": "your.email@gmail.com",
       "username": "admin",
       "password": "admin",
-      "roles": ["admin", "superuser"]
+      "roles": ["admin"]
     }
   ],
   "siteTitle": "",
   "adminEmail": "",
   "mailUrl": "",
   "lifxApiKey": "",
-  "awsKey": "",
-  "awsSecret": "",
-  "awsRegion": "",
-  "s3Bucket": "",
   "segmentKey": ""
 }
