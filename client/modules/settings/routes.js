@@ -4,7 +4,7 @@ import MainLayout from '/client/modules/core/containers/main_layout';
 import SettingsPage from './containers/settings_page';
 
 
-export default function(injectDeps, { FlowRouter }) {
+export default function (injectDeps, { FlowRouter }) {
   const MainLayoutCtx = injectDeps(MainLayout);
 
   FlowRouter.route('/settings', {

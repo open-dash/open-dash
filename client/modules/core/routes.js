@@ -7,12 +7,12 @@ import LoginLayout from './layouts/login_layout';
 import Dashboard from './containers/dashboard';
 import NotFound from './components/not_found';
 
-export default function(injectDeps, { FlowRouter, Meteor }) {
+export default function (injectDeps, { FlowRouter, Meteor }) {
   const MainLayoutCtx = injectDeps(MainLayout);
   const PanelLayoutCtx = injectDeps(PanelLayout);
 
   // Global subscriptions
-  FlowRouter.subscriptions = function() {
+  FlowRouter.subscriptions = function () {
     this.register('settings', Meteor.subscribe('settings'));
   };
 

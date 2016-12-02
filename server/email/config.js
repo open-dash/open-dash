@@ -1,6 +1,6 @@
 import { Settings } from '/lib/collections';
 
-export default function() {
+export default function () {
   /**
    * Custom email configs
    */

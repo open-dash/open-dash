@@ -1,7 +1,7 @@
 import security from './security';
 import seed from './seed';
 
-export default function() {
+export default function () {
   security();
   seed();
 }

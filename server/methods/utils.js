@@ -4,7 +4,7 @@ import { HTTP } from 'meteor/http';
 import { Settings } from '/lib/collections';
 
 
-export default function() {
+export default function () {
 
   Meteor.methods({
     /**

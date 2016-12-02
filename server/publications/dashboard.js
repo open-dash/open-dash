@@ -1,14 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Counts } from 'meteor/tmeasday:publish-counts';
-import { check } from 'meteor/check';
-import { Random } from 'meteor/random';
 import { Devices, Settings } from '/lib/collections';
 import { Lifx, Logger } from '/server/api';
 
-export default function() {
+export default function () {
 
-  Meteor.publish('lifx-lights', function() {
+  Meteor.publish('lifx-lights', function () {
     if (!Roles.userIsInRole(this.userId, 'admin')) {
       return this.ready();
     }

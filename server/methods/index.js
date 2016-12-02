@@ -4,7 +4,7 @@ import settings from './settings';
 import users from './users';
 import utils from './utils';
 
-export default function() {
+export default function () {
   color();
   lifx();
   settings();

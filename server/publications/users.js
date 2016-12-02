@@ -3,10 +3,10 @@ import { check } from 'meteor/check';
 import { Roles } from 'meteor/alanning:roles';
 import { Invitations, Users } from '/lib/collections';
 
-export default function() {
+export default function () {
 
   // user count
-  Meteor.publish('users-count', function() {
+  Meteor.publish('users-count', function () {
     if (Roles.userIsInRole(this.userId, ['admin', 'manager'])) {
       Counts.publish(this, 'users-count', Users.find());
     }
@@ -14,7 +14,7 @@ export default function() {
   });
 
   // single user account
-  Meteor.publish('user-account', function(_id) {
+  Meteor.publish('user-account', function (_id) {
     if (this.userId === _id || Roles.userIsInRole(this.userId, ['admin', 'manager'])) {
       return Users.find({ _id }, {
         fields: {
@@ -27,13 +27,13 @@ export default function() {
 
 
   // Roles
-  Meteor.publish(null, function() {
+  Meteor.publish(null, function () {
     return Meteor.roles.find();
   });
 
 
   // accounts and invites management page
-  Meteor.publish('accounts-management', function() {
+  Meteor.publish('accounts-management', function () {
     if (Roles.userIsInRole(this.userId, 'admin')) {
       return [
         Users.find({}, {
@@ -61,7 +61,7 @@ export default function() {
 
 
   // invite link landing page
-  Meteor.publish('invite', function(token) {
+  Meteor.publish('invite', function (token) {
     check(token, String);
     return Invitations.find({ token: token }, {
       fields: {

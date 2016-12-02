@@ -6,7 +6,7 @@ import { Logger } from '/server/api';
 import _ from 'underscore';
 
 
-export default function() {
+export default function () {
 
   Meteor.methods({
     'settings/update'(settings) {

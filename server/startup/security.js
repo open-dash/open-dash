@@ -1,7 +1,7 @@
 import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
 import _ from 'underscore';
 
-export default function() {
+export default function () {
 
   // Get a list of all methods by running
   // `Meteor.server.method_handlers` in meteor shell.
