@@ -8,7 +8,7 @@ HomeDash can be deployed with [Docker](https://docker.com) and [Docker Compose](
 
 To launch an official prebuilt image of HomeDash, create a docker-compose.yml and add the following:
 
-```
+```yaml
 homedash:
   image: jshimko/homedash:latest
   links:
