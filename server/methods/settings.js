@@ -3,7 +3,7 @@ import { check } from 'meteor/check';
 import { Roles } from 'meteor/alanning:roles';
 import { Settings } from '/lib/collections';
 import { Logger } from '/server/api';
-import _ from 'underscore';
+import _ from 'lodash';
 
 
 export default function () {

@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Settings } from '/lib/collections';
 import { check } from 'meteor/check';
-import _ from 'underscore';
+import _ from 'lodash';
 
 
 export default function () {

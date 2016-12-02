@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import _ from 'underscore';
+import _ from 'lodash';
 
 class Grid extends React.Component {
   render() {

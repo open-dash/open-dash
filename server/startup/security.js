@@ -1,5 +1,5 @@
 import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
-import _ from 'underscore';
+import _ from 'lodash';
 
 export default function () {
 
