@@ -11,7 +11,7 @@ export default function () {
 
       const logger = Logger.child({
         meteor_method: 'lifx/listLights',
-        meteor_method_args: selector,
+        meteor_method_args: [selector],
         userId: this.userId
       });
 
@@ -42,7 +42,7 @@ export default function () {
 
       const logger = Logger.child({
         meteor_method: 'lifx/togglePower',
-        meteor_method_args: selector,
+        meteor_method_args: [selector],
         userId: this.userId
       });
 

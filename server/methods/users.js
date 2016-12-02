@@ -61,7 +61,7 @@ export default function () {
 
       const logger = Logger.child({
         meteor_method: 'setUserRoles',
-        meteor_method_args: options,
+        meteor_method_args: [options],
         userId: this.userId
       });
 
@@ -99,7 +99,7 @@ export default function () {
 
       const logger = Logger.child({
         meteor_method: 'sendUserInvite',
-        meteor_method_args: options,
+        meteor_method_args: [options],
         userId: this.userId
       });
 
@@ -163,7 +163,7 @@ export default function () {
 
       const logger = Logger.child({
         meteor_method: 'activateUserInvite',
-        meteor_method_args: options,
+        meteor_method_args: [options],
         userId: this.userId
       });
 
@@ -218,7 +218,7 @@ export default function () {
 
       const logger = Logger.child({
         meteor_method: 'revokeInvitation',
-        meteor_method_args: inviteId,
+        meteor_method_args: [inviteId],
         userId: this.userId
       });
 
@@ -247,7 +247,7 @@ export default function () {
 
       const logger = Logger.child({
         meteor_method: 'deleteInvitedUser',
-        meteor_method_args: userId,
+        meteor_method_args: [userId],
         userId: this.userId
       });
 

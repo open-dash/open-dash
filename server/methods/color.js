@@ -9,7 +9,7 @@ export default function () {
     'color/kelvinToRGB'(kelvin) {
       const logger = Logger.child({
         meteor_method: 'color/kelvinToRGB',
-        meteor_method_args: kelvin,
+        meteor_method_args: [kelvin],
         userId: this.userId
       });
 
@@ -24,7 +24,7 @@ export default function () {
     'color/rgbToKelvin'(rgb) {
       const logger = Logger.child({
         meteor_method: 'color/rgbToKelvin',
-        meteor_method_args: rgb,
+        meteor_method_args: [rgb],
         userId: this.userId
       });
 
