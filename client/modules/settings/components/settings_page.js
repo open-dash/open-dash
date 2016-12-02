@@ -66,6 +66,13 @@ class SettingsPage extends Component {
                   value={settings.adminEmail}
                   onChange={this.handleStateChange}
                   info='(used for automated emails)'/>
+                <FieldGroup
+                  label='Mail URL'
+                  type='text'
+                  name='mailUrl'
+                  value={settings.mailUrl}
+                  onChange={this.handleStateChange}
+                  info='(SMTP URL for sending app emails)'/>
 
                 <Row className='settings-group-heading'><h3>Lifx</h3></Row>
 
@@ -75,7 +82,6 @@ class SettingsPage extends Component {
                   name='lifxApiKey'
                   value={settings.lifxApiKey}
                   onChange={this.handleStateChange}/>
-
 
                 <Row className='settings-group-heading'><h3>Kadira</h3></Row>
 
