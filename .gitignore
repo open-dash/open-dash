@@ -13,4 +13,5 @@ lib-cov
 .idea
 .DS_Store
 
+docker-compose.*.yml
 settings.*.json

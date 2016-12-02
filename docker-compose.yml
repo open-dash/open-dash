@@ -1,0 +1,14 @@
+
+homedash:
+  image: jshimko/homedash:latest
+  links:
+    - mongo
+  ports:
+    - "80:3000"
+  environment:
+    ROOT_URL: "http://example.com"
+    MONGO_URL: "mongodb://mongo:27017/homedash"
+
+mongo:
+  image: mongo:latest
+  command: mongod --storageEngine=wiredTiger
