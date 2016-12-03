@@ -1,9 +1,13 @@
-import React from 'react';
-import SideNav from '../containers/side_nav';
+import React, { Component, PropTypes } from 'react';
 import Alert from 'react-s-alert';
-import Header from '../components/header';
+import SideNav from '../containers/side_nav';
+import Head from '../components/head';
 
-class MainLayout extends React.Component {
+class MainLayout extends Component {
+
+  static propTypes = {
+    siteTitle: PropTypes.string.isRequired
+  }
 
   constructor(props) {
     super(props);
@@ -33,7 +37,7 @@ class MainLayout extends React.Component {
 
     return (
       <main className='app-root'>
-        <Header title={siteTitle}/>
+        <Head title={siteTitle}/>
         <div id='dash-wrapper' className={this.state.sidebarToggled ? 'toggled' : null}>
           <SideNav/>
           <main id='dash-content-wrapper' className='main-content'>
@@ -51,9 +55,5 @@ class MainLayout extends React.Component {
     );
   }
 }
-
-MainLayout.propTypes = {
-  siteTitle: React.PropTypes.string.isRequired
-};
 
 export default MainLayout;
