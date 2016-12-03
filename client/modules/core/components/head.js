@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-const Header = ({ title }) => (
+const Head = ({ title }) => (
   <Helmet
     meta={[{
       charset: 'utf-8'
@@ -21,4 +21,4 @@ const Header = ({ title }) => (
   />
 );
 
-export default Header;
+export default Head;
