@@ -109,7 +109,7 @@ meteor --settings settings.dev.json
 # running on http://localhost:3000
 ```
 
-You new user(s) will be created and your settings saved the database. Any subsequent app starts can simply be:
+You new user(s) will be created and your settings saved in the database. Any subsequent app starts can simply be:
 
 ```sh
 # start the app
