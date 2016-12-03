@@ -2,7 +2,7 @@
 
 An open source realtime dashboard to view/control all of your home automation toys.
 
-## Run
+## Deploy
 
 HomeDash can be deployed with [Docker](https://docker.com) and [Docker Compose](https://docs.docker.com/compose/overview/). See [Docker install docs](https://docs.docker.com/engine/installation/) for your platform.
 
