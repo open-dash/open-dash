@@ -58,7 +58,7 @@ export default function () {
   // create default settings if none exist
   if (Settings.find().count() < 1) {
     if (!defaultSettings.siteTitle) {
-      defaultSettings.siteTitle = 'Launchdock';
+      defaultSettings.siteTitle = 'HomeDash';
     }
 
     Settings.insert(defaultSettings);
