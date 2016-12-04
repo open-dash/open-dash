@@ -12,6 +12,59 @@ export default function () {
   Meteor.methods({
 
     /**
+     * Change a user's email
+     * @param options {Object} - { userId: String, email: String }
+     * @return {Boolean}
+     */
+    'changeUserEmail'(options) {
+
+      const logger = Logger.child({
+        meteor_method: 'changeUserEmail',
+        meteor_method_args: [options],
+        userId: this.userId
+      });
+
+      check(options, {
+        userId: String,
+        email: String
+      });
+
+      const isAdmin = Roles.userIsInRole(this.userId, 'superuser');
+
+      if (options.userId !== this.userId && !isAdmin) {
+        const err = 'AUTH ERROR: Action not allowed';
+        logger.error(err);
+        throw new Meteor.Error('action-not-allowed', err);
+      }
+
+      const id = options.userId || this.userId;
+
+      const user = Users.findOne(id);
+
+      if (!user) {
+        const err = 'User not found';
+        logger.error(err);
+        throw new Meteor.Error(err);
+      }
+
+      const oldEmail = user.emails[0].address;
+
+      if (options.email.toLowerCase() === oldEmail.toLowerCase()) {
+        logger.info('Same email. Not updating.');
+        return true;
+      }
+
+      Accounts.addEmail(id, options.email);
+
+      Accounts.removeEmail(id, oldEmail);
+
+      logger.info(`Email succesfully updated to ${options.email} for user ${id}`);
+
+      return true;
+    },
+
+
+    /**
      * Add roles to users. Does NOT overwrite
      * the user's existing roles.
      */
