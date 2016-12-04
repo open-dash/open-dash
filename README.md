@@ -1,6 +1,8 @@
 # HomeDash
 
-An open source realtime dashboard to view/control all of your home automation toys.
+A realtime dashboard to view/control all of your home automation toys.
+
+[![CircleCI](https://circleci.com/gh/jshimko/home-dash.svg?style=svg)](https://circleci.com/gh/jshimko/home-dash)
 
 ## Deploy
 
@@ -14,9 +16,9 @@ homedash:
   links:
     - mongo
   ports:
-    - "80:3000"
+    - 80:3000
   environment:
-    MONGO_URL: "mongodb://mongo:27017/homedash"
+    MONGO_URL: mongodb://mongo:27017/homedash
 
 mongo:
   image: mongo:latest
