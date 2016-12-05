@@ -77,7 +77,7 @@ class SettingsPage extends Component {
                 <Row className='settings-group-heading'><h3>Lifx</h3></Row>
 
                 <FieldGroup
-                  label='Lifx API Key'
+                  label='API Key'
                   type='text'
                   name='lifxApiKey'
                   value={settings.lifxApiKey}
