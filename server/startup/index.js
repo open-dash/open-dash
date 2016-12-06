@@ -1,5 +1,6 @@
 import security from './security';
 import seed from './seed';
+import { Settings } from '/lib/collections';
 
 export default function () {
   security();
