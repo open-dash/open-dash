@@ -50,8 +50,8 @@ class InvitesList extends Component {
                             <td>{invite.email}</td>
                             <td>{invite.role}</td>
                             <td>
-                              {format(invite.createdAt, 'LLL')}
-                              <small>({fromNow(invite.createdAt)})</small>
+                              {format(invite.createdAt, 'MMMM D, YYYY h:mma')}
+                              <small> ({fromNow(invite.createdAt)} ago)</small>
                             </td>
                             <td>
                               <Button
