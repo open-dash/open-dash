@@ -47,6 +47,8 @@ logging@1.1.16
 mdg:validation-error@0.5.1
 meteor@1.6.0
 meteor-base@1.0.4
+meteorhacks:kadira@2.30.2
+meteorhacks:meteorx@1.4.1
 meteorhacks:ssr@2.2.0
 minifier-css@1.2.15
 minifier-js@1.2.15
@@ -55,6 +57,7 @@ modules@0.7.7
 modules-runtime@0.7.7
 mongo@1.1.14
 mongo-id@1.0.6
+mongo-livedata@1.0.12
 mrt:later@1.6.1
 npm-bcrypt@0.9.2
 npm-mongo@2.2.11_2

@@ -21,6 +21,7 @@ fourseven:scss
 jeremy:react-accounts-ui
 juliancwirko:postcss # replaces standard-minifier-css
 kadira:flow-router
+meteorhacks:kadira
 meteorhacks:ssr
 tmeasday:publish-counts
 vsivsi:job-collection
