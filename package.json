@@ -1,6 +1,6 @@
 {
   "name": "home-dash",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "A smart home dashboard",
   "scripts": {
     "test": "echo \"Error: no test specified\""
@@ -40,6 +40,8 @@
     "lodash": "^4.17.2",
     "mantra-core": "^1.7.0",
     "node-lifx": "^0.7.0",
+    "nodemailer": "^2.6.4",
+    "nodemailer-wellknown": "^0.2.0",
     "react": "^15.4.1",
     "react-addons-pure-render-mixin": "^15.4.1",
     "react-bootstrap": "^0.30.7",
@@ -51,6 +53,7 @@
     "sweetalert": "^1.1.3",
     "sweetalert2": "^6.2.0",
     "tracker-component": "^1.3.21",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
