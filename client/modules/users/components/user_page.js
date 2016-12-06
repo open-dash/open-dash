@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Grid, Row, Col, Panel, Button, ButtonToolbar } from 'react-bootstrap';
 
-class UserPage extends React.Component {
+class UserPage extends Component {
+
+  static propTypes = {
+    canEdit: React.PropTypes.bool.isRequired,
+    changeEmail: React.PropTypes.func.isRequired,
+    changePassword: React.PropTypes.func.isRequired,
+    emailError: React.PropTypes.string,
+    passwordError: React.PropTypes.string,
+    user: React.PropTypes.object
+  }
 
   constructor(props) {
     super(props);
@@ -170,14 +179,5 @@ class UserPage extends React.Component {
     );
   }
 }
-
-UserPage.propTypes = {
-  canEdit: React.PropTypes.bool.isRequired,
-  changeEmail: React.PropTypes.func.isRequired,
-  changePassword: React.PropTypes.func.isRequired,
-  emailError: React.PropTypes.string,
-  passwordError: React.PropTypes.string,
-  user: React.PropTypes.object
-};
 
 export default UserPage;

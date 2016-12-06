@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-class InviteNew extends React.Component {
+class InviteNew extends Component {
 
   constructor(props) {
     super(props);

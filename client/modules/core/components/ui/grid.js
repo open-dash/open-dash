@@ -2,24 +2,22 @@ import React from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
 
-class Grid extends React.Component {
-  render() {
-    const containerClass = this.props.fluid ? 'container-fluid' : 'container';
-    const classes = classNames(this.props.className, containerClass);
-    const props = _.omit(this.props, ['className', 'children']);
+const Grid = () => {
+  const containerClass = this.props.fluid ? 'container-fluid' : 'container';
+  const classes = classNames(this.props.className, containerClass);
+  const props = _.omit(this.props, ['className', 'children']);
 
-    return (
-      <div className={classes} {...props} >
-        {this.props.children}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={classes} {...props} >
+      {this.props.children}
+    </div>
+  );
+};
 
 Grid.propTypes = {
-  fluid: React.PropTypes.bool,
+  children: React.PropTypes.node,
   className: React.PropTypes.string,
-  children: React.PropTypes.node
+  fluid: React.PropTypes.bool
 };
 
 export default Grid;

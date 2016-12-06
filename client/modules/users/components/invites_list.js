@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Row, Col, Panel, Table, Button } from 'react-bootstrap';
 import InviteNew from '../containers/invite_new';
-import moment from 'moment';
+import format from 'date-fns/format';
+import { default as fromNow } from 'date-fns/distance_in_words_to_now';
 
-class InvitesList extends React.Component {
+class InvitesList extends Component {
+
+  static propTypes = {
+    invites: PropTypes.array.isRequired,
+    revokeInvite: PropTypes.func.isRequired
+  }
 
   revoke(id) {
     const { revokeInvite } = this.props;
@@ -44,8 +50,8 @@ class InvitesList extends React.Component {
                             <td>{invite.email}</td>
                             <td>{invite.role}</td>
                             <td>
-                              {moment(invite.createdAt).format('LLL')}
-                              <small>({moment(invite.createdAt).fromNow()})</small>
+                              {format(invite.createdAt, 'LLL')}
+                              <small>({fromNow(invite.createdAt)})</small>
                             </td>
                             <td>
                               <Button
@@ -71,10 +77,5 @@ class InvitesList extends React.Component {
     );
   }
 }
-
-InvitesList.propTypes = {
-  invites: React.PropTypes.array.isRequired,
-  revokeInvite: React.PropTypes.func.isRequired
-};
 
 export default InvitesList;

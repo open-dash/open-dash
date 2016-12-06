@@ -1,35 +1,38 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
-import Col from './col';
+import { Col } from 'react-bootstrap';
 
-class Tile extends React.Component {
+const Tile = (allProps) => {
+  const classes = classNames(allProps.className, 'tile');
+  const props = _.omit(allProps, ['className', 'children']);
 
-  render() {
-    const classes = classNames(this.props.className, 'tile');
-    const props = _.omit(this.props, ['className', 'children']);
+  const styles = {};
 
-    const styles = {};
-
-    if (this.props.color) {
-      styles.backgroundColor = this.props.color;
-    }
-
-    return (
-      <Col
-        xs={6}
-        sm={4}
-        md={3}
-        lg={2}
-        style={styles}
-        className={classes}
-        {...props}>
-        <div className='tile-content'>
-          {this.props.children}
-        </div>
-      </Col>
-    );
+  if (props.color) {
+    styles.backgroundColor = props.color;
   }
-}
+
+  return (
+    <Col
+      xs={6}
+      sm={4}
+      md={3}
+      lg={2}
+      style={styles}
+      className={classes}
+      {...props}>
+      <div className='tile-content'>
+        {allProps.children}
+      </div>
+    </Col>
+  );
+};
+
+Tile.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  color: PropTypes.element
+};
 
 export default Tile;

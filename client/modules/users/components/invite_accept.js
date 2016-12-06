@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { Row, Col, Panel, Button } from 'react-bootstrap';
 
-class InviteAccept extends React.Component {
+class InviteAccept extends Component {
+
+  static propTypes = {
+    error: PropTypes.string,
+    invite: PropTypes.object
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -98,10 +103,5 @@ class InviteAccept extends React.Component {
     return this.renderSignupForm(invite);
   }
 }
-
-InviteAccept.propTypes = {
-  error: React.PropTypes.string,
-  invite: React.PropTypes.object
-};
 
 export default InviteAccept;

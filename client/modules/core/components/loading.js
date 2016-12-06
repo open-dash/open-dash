@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import assign from 'domkit/appendVendorPrefix';
 import insertKeyframesRule from 'domkit/insertKeyframesRule';
 
 // Loading Animations
 // inspired by http://madscript.com/halogen
 
-class Loading extends React.Component {
+class Loading extends Component {
+
+  static propTypes = {
+    className: PropTypes.string,
+    color: PropTypes.string,
+    id: PropTypes.string,
+    loading: PropTypes.bool,
+    margin: PropTypes.string,
+    size: PropTypes.string
+  }
+
+  static defaultProps = {
+    className: 'loader-wrapper',
+    color: '#666',
+    loading: true,
+    margin: '2px',
+    size: '15px'
+  }
 
   getBallStyle() {
     return {
@@ -18,7 +35,7 @@ class Loading extends React.Component {
     };
   }
 
-  getAnimationStyle(i) {
+  getAnimationStyle() {
     const keyframes = {
       '0%': {
         transform: 'scale(1)'
@@ -54,7 +71,9 @@ class Loading extends React.Component {
     });
   }
 
-  renderLoader(loading) {
+  render() {
+    const { loading } = this.props;
+
     if (loading) {
       const style = {
         width: (parseFloat(this.props.size) * 3) + parseFloat(this.props.margin) * 6,
@@ -64,15 +83,15 @@ class Loading extends React.Component {
       return (
         <div id={this.props.id} className={this.props.className}>
           <div style={style}>
-            <div style={this.getStyle(1)}></div>
-            <div style={this.getStyle(2)}></div>
-            <div style={this.getStyle(3)}></div>
-            <div style={this.getStyle(4)}></div>
-            <div style={this.getStyle(5)}></div>
-            <div style={this.getStyle(6)}></div>
-            <div style={this.getStyle(7)}></div>
-            <div style={this.getStyle(8)}></div>
-            <div style={this.getStyle(9)}></div>
+            <div style={this.getStyle(1)}/>
+            <div style={this.getStyle(2)}/>
+            <div style={this.getStyle(3)}/>
+            <div style={this.getStyle(4)}/>
+            <div style={this.getStyle(5)}/>
+            <div style={this.getStyle(6)}/>
+            <div style={this.getStyle(7)}/>
+            <div style={this.getStyle(8)}/>
+            <div style={this.getStyle(9)}/>
           </div>
         </div>
       );
@@ -80,26 +99,6 @@ class Loading extends React.Component {
 
     return null;
   }
-
-  render() {
-    return this.renderLoader(this.props.loading);
-  }
 }
-
-Loading.propTypes = {
-  className: React.PropTypes.string,
-  color: React.PropTypes.string,
-  loading: React.PropTypes.bool,
-  margin: React.PropTypes.string,
-  size: React.PropTypes.string
-};
-
-Loading.defaultProps = {
-  className: 'loader-wrapper',
-  color: '#666',
-  loading: true,
-  margin: '2px',
-  size: '15px'
-};
 
 export default Loading;

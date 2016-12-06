@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Ladda from 'ladda';
@@ -11,7 +11,23 @@ const laddaOptions = {
   spinnerColor: 'data-spinner-color'
 };
 
-class LaddaButton extends React.Component {
+class LaddaButton extends Component {
+
+  static propTypes = {
+    buttonColor: React.PropTypes.string,
+    buttonSize: React.PropTypes.string,
+    buttonStyle: React.PropTypes.string,
+    loading: React.PropTypes.bool,
+    progress: React.PropTypes.number,
+    spinnerColor: React.PropTypes.string,
+    spinnerSize: React.PropTypes.number
+  }
+
+  static defaultProps = {
+    loading: false,
+    buttonStyle: 'expand-left'
+  }
+
   constructor(props) {
     super(props);
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -19,12 +35,6 @@ class LaddaButton extends React.Component {
 
   componentDidMount() {
     this.laddaButton = Ladda.create(findDOMNode(this));
-  }
-
-  componentWillUnmount() {
-    if (this.laddaButton.remove) {
-      this.laddaButton.remove();
-    }
   }
 
   componentDidUpdate(prevProps) {
@@ -53,6 +63,12 @@ class LaddaButton extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    if (this.laddaButton.remove) {
+      this.laddaButton.remove();
+    }
+  }
+
   render() {
     let props = {};
     for (let prop in this.props) {
@@ -68,20 +84,5 @@ class LaddaButton extends React.Component {
     );
   }
 }
-
-LaddaButton.propTypes = {
-  loading: React.PropTypes.bool,
-  progress: React.PropTypes.number,
-  buttonStyle: React.PropTypes.string,
-  buttonColor: React.PropTypes.string,
-  buttonSize: React.PropTypes.string,
-  spinnerSize: React.PropTypes.number,
-  spinnerColor: React.PropTypes.string
-};
-
-LaddaButton.defaultProps = {
-  loading: false,
-  buttonStyle: 'expand-left'
-};
 
 export default LaddaButton;

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { Grid, Row, Col, Panel, Table, Button, ButtonToolbar } from 'react-bootstrap';
 import InvitesList from '../containers/invites_list';
 
-class UsersList extends React.Component {
+class UsersList extends Component {
+
+  static propTypes = {
+    canDelete: PropTypes.func.isRequired,
+    context: PropTypes.func.isRequired,
+    deleteUser: PropTypes.func.isRequired,
+    invites: PropTypes.array.isRequired,
+    users: PropTypes.array.isRequired
+  }
 
   handleDeleteUser(id) {
     const { deleteUser } = this.props;
@@ -75,13 +83,5 @@ class UsersList extends React.Component {
     );
   }
 }
-
-UsersList.propTypes = {
-  canDelete: React.PropTypes.func.isRequired,
-  context: React.PropTypes.func.isRequired,
-  deleteUser: React.PropTypes.func.isRequired,
-  invites: React.PropTypes.array.isRequired,
-  users: React.PropTypes.array.isRequired
-};
 
 export default UsersList;
