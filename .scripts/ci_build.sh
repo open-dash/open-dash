@@ -15,6 +15,3 @@ docker save jshimko/homedash:latest > ~/docker/image.tar
 # run the container and wait for it to boot
 docker-compose up -d
 sleep 15
-
-# use curl to ensure the app returns 200's
-curl --retry 10 --retry-delay 10 -v http://localhost

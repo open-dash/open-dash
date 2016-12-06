@@ -4,11 +4,11 @@ machine:
 
 dependencies:
   override:
-    - echo "meow"
+    - .scripts/ci_build.sh
 
 test:
   override:
-    - .scripts/ci_build.sh
+    - curl --retry 10 --retry-delay 10 -v http://localhost
 
 deployment:
   release:
