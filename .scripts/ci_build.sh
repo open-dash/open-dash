@@ -5,7 +5,7 @@ if [[ -e ~/docker/image.tar ]]; then
   docker load -i ~/docker/image.tar
 fi
 
-# build new base and app images
+# build new image
 docker build -t jshimko/homedash:latest .
 
 # if successful, save in cache
