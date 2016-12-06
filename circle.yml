@@ -1,21 +1,21 @@
 machine:
   services:
-    - docker
+  - docker
 
 dependencies:
   override:
-    - .scripts/ci_build.sh
+  - .scripts/ci_build.sh
 
 test:
   override:
-    - curl --retry 10 --retry-delay 10 -v http://localhost
+  - curl --retry 10 --retry-delay 10 -v http://localhost
 
 deployment:
   release:
     tag: /v[0-9]+(\.[0-9]+)*/
     owner: jshimko
     commands:
-      - docker tag jshimko/homedash:latest  jshimko/homedash:$CIRCLE_TAG
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push jshimko/homedash:$CIRCLE_TAG
-      - docker push jshimko/homedash:latest
+    - docker tag jshimko/homedash:latest  jshimko/homedash:$CIRCLE_TAG
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - docker push jshimko/homedash:$CIRCLE_TAG
+    - docker push jshimko/homedash:latest
