@@ -63,6 +63,21 @@ class SettingsPage extends Component {
                   onChange={this.handleStateChange}
                   info='(SMTP URL for sending app emails)'/>
 
+                <Row className='settings-group-heading'><h3>Smart Things</h3></Row>
+
+                <FieldGroup
+                  label='Client ID'
+                  type='text'
+                  name='smartthingsClientId'
+                  value={this.state.smartthingsClientId}
+                  onChange={this.handleStateChange}/>
+                <FieldGroup
+                  label='Client Secret'
+                  type='text'
+                  name='smartthingsClientSecret'
+                  value={this.state.smartthingsClientSecret}
+                  onChange={this.handleStateChange}/>
+
                 <Row className='settings-group-heading'><h3>Lifx</h3></Row>
 
                 <FieldGroup
