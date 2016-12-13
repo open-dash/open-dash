@@ -11,6 +11,8 @@
   "adminEmail": "",
   "mailUrl": "",
   "lifxApiKey": "",
+  "smartthingsClientId": "",
+  "smartthingsClientSecret": "",
   "segmentKey": "",
   "slackWebhookUrl": ""
 }

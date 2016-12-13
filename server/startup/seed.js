@@ -44,6 +44,8 @@ export default function () {
       'adminEmail',
       'mailUrl',
       'lifxApiKey',
+      'smartthingsClientId',
+      'smartthingsClientSecret',
       'awsKey',
       'awsSecret',
       'awsRegion',
