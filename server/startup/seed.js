@@ -60,7 +60,7 @@ export default function () {
   // create default settings if none exist
   if (Settings.find().count() < 1) {
     if (!defaultSettings.siteTitle) {
-      defaultSettings.siteTitle = 'HomeDash';
+      defaultSettings.siteTitle = 'OpenDash';
     }
 
     Settings.insert(defaultSettings);
