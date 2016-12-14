@@ -1,6 +1,6 @@
 {
   "name": "HomeDash",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A smart home dashboard",
   "scripts": {
     "test": "echo \"Error: no test specified\""
