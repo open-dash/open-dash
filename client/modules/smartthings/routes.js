@@ -26,7 +26,7 @@ export default function (injectDeps, { FlowRouter, Meteor, Alert }) {
         Meteor.call('smartthings/auth/getToken', code, (err) => {
           FlowRouter.go('/');
           if (err) {
-            Alert.error({ text: error.reason });
+            Alert.error({ text: err.reason });
           } else {
             Alert.success({ text: 'Connected to SmartThings!' });
           }
