@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
 const Head = ({ title }) => (
@@ -17,8 +17,11 @@ const Head = ({ title }) => (
     }, {
       type: 'text/javascript',
       innerHTML: 'try{Typekit.load({ async: true });}catch(e){}'
-    }]}
-  />
+    }]}/>
 );
+
+Head.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
 export default Head;

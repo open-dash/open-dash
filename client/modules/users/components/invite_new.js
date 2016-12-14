@@ -76,7 +76,7 @@ class InviteNew extends Component {
                   <option value=''>Select a role...</option>
                   <option value='admin'>Admin</option>
                   <option value='manager'>Manager</option>
-                  <option value='customer'>Customer</option>
+                  <option value='viewer'>Viewer</option>
                 </select>
               </div>
             </form>

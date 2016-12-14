@@ -5,11 +5,11 @@ export default {
 
     const options = {
       email,
-      role: isManager ? 'customer' : role
+      role: isManager ? 'viewer' : role
     };
 
     if (options.email && options.role) {
-      if (options.role === 'customer') {
+      if (options.role === 'viewer') {
         Meteor.call('sendReactionInvite', options, (err) => {
           if (err) {
             Notify.error(err.error);

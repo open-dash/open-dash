@@ -44,8 +44,8 @@ export const Notify = {
  *  https://github.com/t4t5/sweetalert
  */
 export const Alert = {
-  success(title, text) {
-    swal(title, text, 'success');
+  success(options = {}) {
+    swal(options.title || 'Success!', options.text, 'success');
   },
 
   info(title, text) {

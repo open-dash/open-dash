@@ -3,13 +3,14 @@ import loading from '../components/loading';
 import SideNav from '../components/side_nav';
 
 export const composer = ({ context }, onData) => {
-  const { Meteor, Collections } = context();
-  const { Settings } = Collections;
+  const { Meteor, Settings } = context();
 
-  const siteTitle = Settings.get('siteTitle');
-  const user = Meteor.user();
+  if (Meteor.subscribe('settings').ready()) {
+    const siteTitle = Settings.get('siteTitle');
+    const user = Meteor.user();
 
-  onData(null, { siteTitle, user });
+    onData(null, { siteTitle, user });
+  }
 };
 
 export const depsMapper = (context, actions) => ({
