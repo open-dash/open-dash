@@ -2,7 +2,7 @@
 
 A realtime dashboard to view/control all of your home automation toys.
 
-[![CircleCI](https://circleci.com/gh/jshimko/home-dash.svg?style=svg)](https://circleci.com/gh/jshimko/home-dash)
+[![CircleCI](https://circleci.com/gh/open-dash/open-dash.svg?style=svg)](https://circleci.com/gh/open-dash/open-dash)
 
 ## Deploy
 
