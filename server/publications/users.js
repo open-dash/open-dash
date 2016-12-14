@@ -32,6 +32,19 @@ export default function () {
   });
 
 
+  // Services
+  Meteor.publish(null, function () {
+    if (this.userId) {
+      return Users.find({ _id: this.userId }, {
+        fields: {
+          'services.smartthings': 1
+        }
+      });
+    }
+    return this.ready();
+  });
+
+
   // accounts and invites management page
   Meteor.publish('accounts-management', function () {
     if (Roles.userIsInRole(this.userId, 'admin')) {
@@ -63,7 +76,7 @@ export default function () {
   // invite link landing page
   Meteor.publish('invite', function (token) {
     check(token, String);
-    return Invitations.find({ token: token }, {
+    return Invitations.find({ token }, {
       fields: {
         email: 1,
         token: 1,

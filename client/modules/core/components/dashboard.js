@@ -1,10 +1,18 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
-import { Row, Tile } from '/client/modules/core/components/ui';
+import { Grid, Row, Col } from 'react-bootstrap';
+import SmartThingsConnect from '/client/modules/smartthings/containers/connect';
 
 const Dashboard = () => (
   <div>
-    things
+    <Helmet title='Dashboard'/>
+    <Grid fluid>
+      <Row>
+        <Col sm={12} md={3}>
+          <SmartThingsConnect />
+        </Col>
+      </Row>
+    </Grid>
   </div>
 );
 
