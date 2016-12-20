@@ -1,7 +1,7 @@
 import { includes } from 'lodash';
 import bunyan from 'bunyan';
 import bunyanFormat from 'bunyan-format';
-import { Bunyan2Loggly } from 'bunyan-loggly';
+import Bunyan2Loggly from 'bunyan-loggly';
 import { Settings } from '/lib/collections';
 
 // configure bunyan logging module for reaction server
