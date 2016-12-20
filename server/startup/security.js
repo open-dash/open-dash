@@ -1,5 +1,6 @@
-import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
 import _ from 'lodash';
+import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
+import { BrowserPolicy } from 'meteor/browser-policy-common';
 
 export default function () {
 
@@ -33,4 +34,6 @@ export default function () {
     connectionId() { return true; }
   }, 2, 5000);
 
+
+  BrowserPolicy.content.allowOriginForAll('*.typekit.net');
 }

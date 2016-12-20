@@ -15,6 +15,10 @@ binary-heap@1.0.10
 blaze@2.2.0
 blaze-tools@1.0.10
 boilerplate-generator@1.0.11
+browser-policy@1.0.9
+browser-policy-common@1.0.11
+browser-policy-content@1.0.12
+browser-policy-framing@1.0.12
 caching-compiler@1.1.9
 callback-hook@1.0.10
 check@1.2.4
@@ -47,7 +51,7 @@ logging@1.1.16
 mdg:validation-error@0.5.1
 meteor@1.6.0
 meteor-base@1.0.4
-meteorhacks:kadira@2.30.2
+meteorhacks:kadira@2.30.3
 meteorhacks:meteorx@1.4.1
 meteorhacks:ssr@2.2.0
 minifier-css@1.2.15
