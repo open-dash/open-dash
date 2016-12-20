@@ -6,11 +6,11 @@ if [[ -e ~/docker/image.tar ]]; then
 fi
 
 # build new image
-docker build -t jshimko/homedash:latest .
+docker build -t opendash/opendash:latest .
 
 # if successful, save in cache
 mkdir -p ~/docker
-docker save jshimko/homedash:latest > ~/docker/image.tar
+docker save opendash/opendash:latest > ~/docker/image.tar
 
 # run the container and wait for it to boot
 docker-compose up -d

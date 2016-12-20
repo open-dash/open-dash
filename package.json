@@ -1,13 +1,13 @@
 {
-  "name": "HomeDash",
   "version": "0.2.5",
+  "name": "OpenDash",
   "description": "A smart home dashboard",
   "scripts": {
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jshimko/home-dash.git"
+    "url": "https://github.com/open-dash/open-dash.git"
   },
   "keywords": [
     "docker",
@@ -17,9 +17,9 @@
   "author": "Jeremy Shimko <jeremy.shimko@gmail.com>",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/jshimko/home-dash/issues"
+    "url": "https://github.com/open-dash/open-dash/issues"
   },
-  "homepage": "https://github.com/jshimko/home-dash",
+  "homepage": "https://github.com/open-dash/open-dash",
   "dependencies": {
     "analytics-node": "^2.1.0",
     "babel-polyfill": "^6.20.0",

@@ -1,24 +1,24 @@
-# HomeDash
+# OpenDash
 
 A realtime dashboard to view/control all of your home automation toys.
 
-[![CircleCI](https://circleci.com/gh/jshimko/home-dash.svg?style=svg)](https://circleci.com/gh/jshimko/home-dash)
+[![CircleCI](https://circleci.com/gh/open-dash/open-dash.svg?style=svg)](https://circleci.com/gh/open-dash/open-dash)
 
 ## Deploy
 
-HomeDash can be deployed with [Docker](https://docker.com) and [Docker Compose](https://docs.docker.com/compose/overview/). See [Docker install docs](https://docs.docker.com/engine/installation/) for your platform.
+OpenDash can be deployed with [Docker](https://docker.com) and [Docker Compose](https://docs.docker.com/compose/overview/). See [Docker install docs](https://docs.docker.com/engine/installation/) for your platform.
 
-To launch an official prebuilt image of HomeDash, create a docker-compose.yml and add the following:
+To launch an official prebuilt image of OpenDash, create a docker-compose.yml and add the following:
 
 ```yaml
-homedash:
-  image: jshimko/homedash:latest
+opendash:
+  image: opendash/opendash:latest
   links:
     - mongo
   ports:
     - 80:3000
   environment:
-    MONGO_URL: mongodb://mongo:27017/homedash
+    MONGO_URL: mongodb://mongo:27017/opendash
 
 mongo:
   image: mongo:latest
@@ -37,14 +37,14 @@ docker-compose up -d
 
 Before cloning this project to work with it locally or build from source, make sure you have installed all of the dependencies for your operating system. For more info, see the [install docs](docs/installation.md).
 
-Once you've installed the dependencies for your OS, you're ready to download, build, and run HomeDash. Note that the instructions below are specifically for local development/testing. Docker should be used for production deployments. More production deployment details for various platforms coming soon.
+Once you've installed the dependencies for your OS, you're ready to download, build, and run OpenDash. Note that the instructions below are specifically for local development/testing. Docker should be used for production deployments. More production deployment details for various platforms coming soon.
 
 ### Install
 
 ```sh
-git clone https://github.com/jshimko/home-dash.git
+git clone https://github.com/open-dash/open-dash.git
 
-cd home-dash
+cd open-dash
 
 meteor npm install
 ```
@@ -94,7 +94,7 @@ Now open your new `settings.dev.json` file and add any desired users or settings
   // These are the currently available settings that
   // can be imported into the Settings collection.
   // Any other keys will be ignored.
-  "siteTitle": "HomeDash",
+  "siteTitle": "OpenDash",
   "adminEmail": "",
   "mailUrl": "",
   "lifxApiKey": "",
