@@ -1,6 +1,6 @@
 {
   "name": "OpenDash",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "description": "A smart home dashboard",
   "scripts": {
     "test": "echo \"Error: no test specified\""

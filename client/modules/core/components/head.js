@@ -13,7 +13,7 @@ const Head = ({ title }) => (
     titleTemplate={`${title} | %s`}
     script={[{
       type: 'text/javascript',
-      src: 'https://use.typekit.net/wie4qln.js'
+      src: 'https://use.typekit.net/yaa3wrc.js'
     }, {
       type: 'text/javascript',
       innerHTML: 'try{Typekit.load({ async: true });}catch(e){}'
