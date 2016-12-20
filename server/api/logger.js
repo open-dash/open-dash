@@ -1,54 +1,45 @@
+import { includes } from 'lodash';
 import bunyan from 'bunyan';
 import bunyanFormat from 'bunyan-format';
 import { Bunyan2Loggly } from 'bunyan-loggly';
-import BunyanMongo from './logger-mongo';
-import { Logs, Settings } from '/lib/collections';
+import { Settings } from '/lib/collections';
 
-/**
- * Global logging config
- */
+// configure bunyan logging module for reaction server
+// See: https://github.com/trentm/node-bunyan#levels
+const levels = ['FATAL', 'ERROR', 'WARN', 'INFO', 'DEBUG', 'TRACE'];
 
-const logLevel = process.env.LOG_LEVEL || 'INFO';
+// set stdout log level
+let level = process.env.OPENDASH_LOG_LEVEL || Meteor.settings.OPENDASH_LOG_LEVEL || 'INFO';
 
-// console output formatting
-const formatOut = bunyanFormat({
-  outputMode: 'short'
-});
+level = level.toUpperCase();
 
-// default console config
-let streams = [{
-  level: 'info',
-  stream: logLevel !== 'DEBUG' ? formatOut : process.stdout
-}];
-
-
-// Loggly config (only used in production)
-if (process.env.NODE_ENV === 'production') {
-  const logglyToken = process.env.LOGGLY_TOKEN;
-  const logglySubdomain = process.env.LOGGLY_SUBDOMAIN;
-
-  if (logglyToken && logglySubdomain) {
-    const logglyStream = {
-      type: 'raw',
-      stream: new Bunyan2Loggly({
-        token: logglyToken,
-        subdomain: logglySubdomain
-      })
-    };
-    streams.push(logglyStream);
-  }
+if (!includes(levels, level)) {
+  level = 'INFO';
 }
 
+// default console config (stdout)
+const streams = [{
+  level,
+  stream: bunyanFormat({ outputMode: 'short' })
+}];
 
-// Mongo logger config
-// const mongoStream = {
-//   type: 'raw',
-//   stream: new BunyanMongo()
-// };
-// streams.push(mongoStream);
+// Loggly config (only used if configured)
+const logglyToken = process.env.LOGGLY_TOKEN;
+const logglySubdomain = process.env.LOGGLY_SUBDOMAIN;
 
+if (logglyToken && logglySubdomain) {
+  const logglyStream = {
+    type: 'raw',
+    level: process.env.LOGGLY_LOG_LEVEL || 'DEBUG',
+    stream: new Bunyan2Loggly({
+      token: logglyToken,
+      subdomain: logglySubdomain
+    })
+  };
+  streams.push(logglyStream);
+}
 
-const name = Settings.get('siteTitle', 'Home Dash');
+const name = Settings.get('siteTitle', 'OpenDash');
 
 // create default logger instance
 const Logger = bunyan.createLogger({
