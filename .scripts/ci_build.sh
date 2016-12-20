@@ -6,6 +6,7 @@ if [[ -e ~/docker/image.tar ]]; then
 fi
 
 # build new image
+docker pull jshimko/meteor-launchpad:latest
 docker build -t opendash/opendash:latest .
 
 # if successful, save in cache
