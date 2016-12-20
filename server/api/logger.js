@@ -47,7 +47,4 @@ const Logger = bunyan.createLogger({
   streams
 });
 
-// set default level
-Logger.level(logLevel);
-
 export default Logger;
