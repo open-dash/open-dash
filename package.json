@@ -47,7 +47,7 @@
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-helmet": "^3.2.3",
-    "react-komposer": "^1.13.1",
+    "react-komposer": "^2.0.0",
     "react-mounter": "^1.2.0",
     "react-s-alert": "^1.2.2",
     "sweetalert": "^1.1.3",

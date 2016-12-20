@@ -1,4 +1,5 @@
-import { useDeps, composeAll, composeWithTracker } from 'mantra-core';
+import { useDeps } from 'react-simple-di';
+import { composeWithTracker, merge } from '/client/api';
 import Tile from '../components/ui/tile';
 
 export const composer = ({ context }, onData) => {
@@ -10,7 +11,7 @@ export const depsMapper = (context, actions) => ({
   context: () => context
 });
 
-export default composeAll(
+export default merge(
   composeWithTracker(composer),
   useDeps(depsMapper)
 )(Tile);

@@ -1,5 +1,5 @@
-import { useDeps, composeAll, composeWithTracker } from 'mantra-core';
-import loading from '/client/modules/core/components/loading';
+import { useDeps } from 'react-simple-di';
+import { composeWithTracker, merge } from '/client/api';
 import SmartThingsDevices from '../components/devices';
 
 export const composer = ({ context }, onData) => {
@@ -20,7 +20,7 @@ export const depsMapper = (context, actions) => ({
   context: () => context
 });
 
-export default composeAll(
-  composeWithTracker(composer, loading),
+export default merge(
+  composeWithTracker(composer),
   useDeps(depsMapper)
 )(SmartThingsDevices);

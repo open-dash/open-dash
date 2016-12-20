@@ -1,6 +1,5 @@
-import { useDeps, composeAll, composeWithTracker } from 'mantra-core';
-import loading from '/client/modules/core/components/loading';
-import error from '/client/modules/core/components/error';
+import { useDeps } from 'react-simple-di';
+import { composeWithTracker, merge } from '/client/api';
 import Panel from '../components/panel';
 
 export const composer = ({ context }, onData) => {
@@ -16,7 +15,7 @@ export const depsMapper = (context, actions) => ({
   onDeviceToggle: actions.lifx.onDeviceToggle
 });
 
-export default composeAll(
-  composeWithTracker(composer, loading, error),
+export default merge(
+  composeWithTracker(composer),
   useDeps(depsMapper)
 )(Panel);

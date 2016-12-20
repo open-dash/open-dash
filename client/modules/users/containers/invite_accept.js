@@ -1,6 +1,5 @@
-import { composeWithTracker, composeAll } from 'react-komposer';
 import { useDeps } from 'react-simple-di';
-import loading from '/client/modules/core/components/loading';
+import { composeWithTracker, merge } from '/client/api';
 import InviteAccept from '../components/invite_accept';
 
 export const composer = ({ context, token }, onData) => {
@@ -18,7 +17,7 @@ export const depsMapper = (context, actions) => ({
   acceptInvite: actions.invites.acceptInvite
 });
 
-export default composeAll(
-  composeWithTracker(composer, loading),
+export default merge(
+  composeWithTracker(composer),
   useDeps(depsMapper)
 )(InviteAccept);

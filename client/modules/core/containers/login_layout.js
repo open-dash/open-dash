@@ -1,6 +1,5 @@
-import { composeWithTracker, composeAll } from 'react-komposer';
 import { useDeps } from 'react-simple-di';
-import loading from '../components/loading';
+import { composeWithTracker, merge } from '/client/api';
 import Layout from '../layouts/login_layout';
 
 export const composer = ({ context }, onData) => {
@@ -13,7 +12,7 @@ export const depsMapper = (context) => ({
   context: () => context
 });
 
-export default composeAll(
-  composeWithTracker(composer, loading),
+export default merge(
+  composeWithTracker(composer),
   useDeps(depsMapper)
 )(Layout);
