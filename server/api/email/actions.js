@@ -3,7 +3,7 @@ import { Jobs } from '/lib/collections';
 
 
 /**
- * Reaction.Email.send()
+ * Email.send()
  * (Job API doc) https://github.com/vsivsi/meteor-job-collection/#user-content-job-api
  * @param  {Object} options - object containing to/from/subject/html String keys
  * @return {Boolean} returns job object

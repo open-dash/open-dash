@@ -4,7 +4,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
 import { SSR } from 'meteor/meteorhacks:ssr';
 import { Invitations, Settings, Users } from '/lib/collections';
-import { Logger } from '/server/api';
+import { Email, Logger } from '/server/api';
 import _ from 'lodash';
 
 export default function () {
