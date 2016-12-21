@@ -36,4 +36,8 @@ export default function () {
 
 
   BrowserPolicy.content.allowOriginForAll('*.typekit.net');
+  BrowserPolicy.content.allowOriginForAll('*.segment.com');
+  BrowserPolicy.content.allowOriginForAll('d1l6p2sc9645hc.cloudfront.net');
+  BrowserPolicy.content.allowOriginForAll('www.google-analytics.com');
+  BrowserPolicy.content.allowOriginForAll('cdn.mxpnl.com');
 }
