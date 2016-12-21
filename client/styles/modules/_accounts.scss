@@ -1,8 +1,9 @@
-$accounts-ui-color: #355681;
+$accounts-ui-color: $brand-primary;
 
 .accounts-ui {
+  padding: 30px;
   border: solid 3px $accounts-ui-color;
-  font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $font-family-sans-serif;
 
   button[type="submit"] {
     background-color: darken($accounts-ui-color, 5%);
