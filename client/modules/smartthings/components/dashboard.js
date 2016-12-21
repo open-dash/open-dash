@@ -1,9 +1,11 @@
 import React, { PropTypes } from 'react';
+import Helmet from 'react-helmet';
 import { Panel, Button } from 'react-bootstrap';
 import SmartThingsDevices from '../containers/devices';
 
 const SmartThingsDashboard = ({ smartthingsConnected }) => (
   <Panel>
+    <Helmet title='SmartThings Devices'/>
     {smartthingsConnected ?
       <div>
         <h4 className='text-center'>SmartThings Devices</h4>
