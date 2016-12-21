@@ -38,7 +38,6 @@
     "ladda": "^1.0.0",
     "later": "^1.2.0",
     "lodash": "^4.17.2",
-    "mantra-core": "^1.7.0",
     "node-lifx": "^0.7.0",
     "nodemailer": "^2.7.0",
     "nodemailer-wellknown": "^0.2.0",

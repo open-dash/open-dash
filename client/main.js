@@ -1,4 +1,4 @@
-import { createApp } from 'mantra-core';
+import { App } from '/client/api';
 import initContext from './configs/context';
 
 // modules
@@ -12,7 +12,7 @@ import usersModule from './modules/users';
 const context = initContext();
 
 // create app
-const app = createApp(context);
+const app = new App(context);
 app.loadModule(coreModule);
 app.loadModule(panelModule);
 app.loadModule(settingsModule);
