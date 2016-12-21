@@ -40,4 +40,5 @@ export default function () {
   BrowserPolicy.content.allowOriginForAll('d1l6p2sc9645hc.cloudfront.net');
   BrowserPolicy.content.allowOriginForAll('www.google-analytics.com');
   BrowserPolicy.content.allowOriginForAll('cdn.mxpnl.com');
+  BrowserPolicy.content.allowOriginForAll('*.gosquared.com');
 }
