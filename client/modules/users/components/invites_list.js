@@ -25,7 +25,7 @@ class InvitesList extends Component {
           <Panel>
             <Row>
               <Col sm={12}>
-                <h3>Invitations <small className='text-muted'>({'openInviteCount'})</small></h3>
+                <h3>Invitations <small className='text-muted'>({invites.length})</small></h3>
                 <hr/>
                 <InviteNew />
                 <br/>
