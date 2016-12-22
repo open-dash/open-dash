@@ -67,6 +67,8 @@ curl https://install.meteor.com/ | sh
 
 **Windows Build Tools 2015**
 
+(requires admin priveledges to install, open a command prompt as an Administrator)
+
 ```sh
 # https://github.com/felixrieseberg/windows-build-tools
 
