@@ -91,17 +91,28 @@ Now open your new `settings.dev.json` file and add any desired users or settings
     }
   ],
 
-  // These are the currently available settings that
-  // can be imported into the Settings collection.
-  // Any other keys will be ignored.
-  "siteTitle": "OpenDash",
-  "adminEmail": "",
-  "mailUrl": "",
-  "lifxApiKey": "",
-  "smartthingsClientId": "",
-  "smartthingsClientSecret": "",
-  "segmentKey": "",
-  "slackWebhookUrl": ""
+  "app" : {
+    "title" : "OpenDash",
+    "adminEmail" : ""
+  },
+
+  "mail" : {
+    "smtpUrl" : ""
+  },
+
+  "smartthings" : {
+    "clientId" : "",
+    "clientSecret" : ""
+  },
+
+  "kadira" : {
+    "appId" : "",
+    "appSecret" : ""
+  },
+
+  "segment" : {
+    "writeKey" : "  "
+  }
 }
 ```
 
