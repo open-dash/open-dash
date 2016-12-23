@@ -148,10 +148,10 @@ export default function () {
     },
 
 
-    sendUserInvite(options) {
+    'users/sendInvite'(options) {
 
       const logger = Logger.child({
-        meteor_method: 'sendUserInvite',
+        meteor_method: 'users/sendInvite',
         meteor_method_args: [options],
         userId: this.userId
       });

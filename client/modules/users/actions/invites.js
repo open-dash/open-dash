@@ -9,23 +9,13 @@ export default {
     };
 
     if (options.email && options.role) {
-      if (options.role === 'viewer') {
-        Meteor.call('sendReactionInvite', options, (err) => {
-          if (err) {
-            Notify.error(err.error);
-          } else {
-            Notify.success('Invitation sent!');
-          }
-        });
-      } else {
-        Meteor.call('sendUserInvite', options, (err) => {
-          if (err) {
-            Notify.error(err.error);
-          } else {
-            Notify.success('Invitation sent!');
-          }
-        });
-      }
+      Meteor.call('users/sendInvite', options, (err) => {
+        if (err) {
+          Notify.error(err.error);
+        } else {
+          Notify.success('Invitation sent!');
+        }
+      });
     } else {
       Notify.warn('Please set an email and at least one role!');
     }
