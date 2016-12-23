@@ -109,7 +109,8 @@ class SettingsPage extends Component {
                   label='Webhook URL'
                   type='text'
                   name='slack.webhookUrl'
-                  defaultValue={_.get(this.state, 'slack.webhookUrl')} onChange={this.handleStateChange}/>
+                  defaultValue={_.get(this.state, 'slack.webhookUrl')}
+                  onChange={this.handleStateChange}/>
 
                 <Row>
                   <div className='form-group'>
