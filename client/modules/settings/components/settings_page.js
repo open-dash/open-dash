@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 import Helmet from 'react-helmet';
+import _ from 'lodash';
 import { FieldGroup } from '/client/modules/core/components/ui';
 
 class SettingsPage extends Component {
@@ -13,14 +14,14 @@ class SettingsPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state =  props.settings;
+    this.state = props.settings || {};
 
     this.handleStateChange = this.handleStateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleStateChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState(_.set(this.state, e.target.name, e.target.value));
   }
 
   handleSubmit(e) {
@@ -43,23 +44,23 @@ class SettingsPage extends Component {
                 <Row className='settings-group-heading'><h3>General</h3></Row>
 
                 <FieldGroup
-                  label='Site Title'
+                  label='App Title'
                   type='text'
-                  name='siteTitle'
-                  value={this.state.siteTitle}
+                  name='app.title'
+                  defaultValue={_.get(this.state, 'app.title')}
                   onChange={this.handleStateChange}/>
                 <FieldGroup
                   label='Admin Email'
                   type='text'
-                  name='adminEmail'
-                  value={this.state.adminEmail}
+                  name='app.adminEmail'
+                  defaultValue={_.get(this.state, 'app.adminEmail')}
                   onChange={this.handleStateChange}
                   info='(used for automated emails)'/>
                 <FieldGroup
                   label='Mail URL'
                   type='text'
-                  name='mailUrl'
-                  value={this.state.mailUrl}
+                  name='mail.smtpUrl'
+                  defaultValue={_.get(this.state, 'mail.smtpUrl')}
                   onChange={this.handleStateChange}
                   info='(SMTP URL for sending app emails)'/>
 
@@ -68,14 +69,14 @@ class SettingsPage extends Component {
                 <FieldGroup
                   label='Client ID'
                   type='text'
-                  name='smartthingsClientId'
-                  value={this.state.smartthingsClientId}
+                  name='smartthings.clientId'
+                  defaultValue={_.get(this.state, 'smartthings.clientId')}
                   onChange={this.handleStateChange}/>
                 <FieldGroup
                   label='Client Secret'
                   type='text'
-                  name='smartthingsClientSecret'
-                  value={this.state.smartthingsClientSecret}
+                  name='smartthings.clientSecret'
+                  defaultValue={_.get(this.state, 'smartthings.clientSecret')}
                   onChange={this.handleStateChange}/>
 
                 <Row className='settings-group-heading'><h3>Lifx</h3></Row>
@@ -83,8 +84,8 @@ class SettingsPage extends Component {
                 <FieldGroup
                   label='API Key'
                   type='text'
-                  name='lifxApiKey'
-                  value={this.state.lifxApiKey}
+                  name='lifx.apiKey'
+                  defaultValue={_.get(this.state, 'lifx.apiKey')}
                   onChange={this.handleStateChange}/>
 
                 <Row className='settings-group-heading'><h3>Kadira</h3></Row>
@@ -92,14 +93,14 @@ class SettingsPage extends Component {
                 <FieldGroup
                   label='App ID'
                   type='text'
-                  name='kadiraAppId'
-                  value={this.state.kadiraAppId}
+                  name='kadira.appId'
+                  defaultValue={_.get(this.state, 'kadira.appId')}
                   onChange={this.handleStateChange}/>
                 <FieldGroup
                   label='Secret'
                   type='text'
-                  name='kadiraAppSecret'
-                  value={this.state.kadiraAppSecret}
+                  name='kadira.appSecret'
+                  defaultValue={_.get(this.state, 'kadira.appSecret')}
                   onChange={this.handleStateChange}/>
 
                 <Row className='settings-group-heading'><h3>Segment.io</h3></Row>
@@ -107,8 +108,8 @@ class SettingsPage extends Component {
                 <FieldGroup
                   label='API Key'
                   type='text'
-                  name='segmentKey'
-                  value={this.state.segmentKey}
+                  name='segment.writeKey'
+                  defaultValue={_.get(this.state, 'segment.writeKey')}
                   onChange={this.handleStateChange}/>
 
                 <Row className='settings-group-heading'><h3>Slack</h3></Row>
@@ -116,9 +117,8 @@ class SettingsPage extends Component {
                 <FieldGroup
                   label='Webhook URL'
                   type='text'
-                  name='slackWebhookUrl'
-                  value={this.state.slackWebhookUrl}
-                  onChange={this.handleStateChange}/>
+                  name='slack.webhookUrl'
+                  defaultValue={_.get(this.state, 'slack.webhookUrl')} onChange={this.handleStateChange}/>
 
                 <Row>
                   <div className='form-group'>
