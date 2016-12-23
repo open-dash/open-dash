@@ -79,15 +79,6 @@ class SettingsPage extends Component {
                   defaultValue={_.get(this.state, 'smartthings.clientSecret')}
                   onChange={this.handleStateChange}/>
 
-                <Row className='settings-group-heading'><h3>Lifx</h3></Row>
-
-                <FieldGroup
-                  label='API Key'
-                  type='text'
-                  name='lifx.apiKey'
-                  defaultValue={_.get(this.state, 'lifx.apiKey')}
-                  onChange={this.handleStateChange}/>
-
                 <Row className='settings-group-heading'><h3>Kadira</h3></Row>
 
                 <FieldGroup

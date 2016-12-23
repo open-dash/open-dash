@@ -7,12 +7,27 @@
       "roles": ["admin"]
     }
   ],
-  "siteTitle": "",
-  "adminEmail": "",
-  "mailUrl": "",
-  "lifxApiKey": "",
-  "smartthingsClientId": "",
-  "smartthingsClientSecret": "",
-  "segmentKey": "",
-  "slackWebhookUrl": ""
+
+  "app" : {
+    "title" : "OpenDash",
+    "adminEmail" : ""
+  },
+
+  "mail" : {
+    "smtpUrl" : ""
+  },
+
+  "smartthings" : {
+    "clientId" : "",
+    "clientSecret" : ""
+  },
+
+  "kadira" : {
+    "appId" : "",
+    "appSecret" : ""
+  },
+
+  "segment" : {
+    "writeKey" : "  "
+  }
 }
