@@ -1,7 +1,7 @@
 
 # Installation
 
-HomeDash is built with [Meteor](https://meteor.com) and requires [Node.js](https://nodejs.org/) (v4 or higher). See the instructions for your operating system below.
+OpenDash is built with [Meteor](https://meteor.com) and requires [Node.js](https://nodejs.org/) (v4 or higher). See the instructions for your operating system below.
 
 - [macOS](#macos)
 - [Linux](#linux)
