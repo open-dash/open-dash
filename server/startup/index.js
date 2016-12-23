@@ -11,11 +11,10 @@ export default function () {
   // connect to Kadira in production (if configured)
   // https://kadira.io
   if (process.env.NODE_ENV === 'production') {
-    const kadiraAppId = Settings.get('kadiraAppId');
-    const kadiraAppSecret = Settings.get('kadiraAppSecret');
+    const { appId, appSecret } = Settings.get('kadira', {});
 
-    if (kadiraAppId && kadiraAppSecret) {
-      Kadira.connect(kadiraAppId, kadiraAppSecret);
+    if (appId && appSecret) {
+      Kadira.connect(appId, appSecret);
     }
   }
 }

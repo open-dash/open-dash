@@ -51,12 +51,12 @@ export function sendResetPasswordEmail(userId, optionalEmail) {
 
   SSR.compileTemplate('resetPassword', Assets.getText('email/templates/reset_password.html'));
 
-  const siteTitle = Settings.get('siteTitle');
+  const siteTitle = Settings.get('app.title');
   const url = Accounts.urls.resetPassword(token);
 
   return send({
     to: email,
-    from: Settings.get('adminEmail'),
+    from: Settings.get('app.adminEmail'),
     subject: `${siteTitle} - Reset your password`,
     html: SSR.render('resetPassword', { siteTitle, user, url })
   });
@@ -114,12 +114,12 @@ export function sendVerificationEmail(userId, email) {
 
   SSR.compileTemplate('verifyEmail', Assets.getText('email/templates/verify_email.html'));
 
-  const siteTitle = Settings.get('siteTitle');
+  const siteTitle = Settings.get('app.title');
   const url = Accounts.urls.verifyEmail(token);
 
   return send({
     to: address,
-    from: Settings.get('adminEmail'),
+    from: Settings.get('app.adminEmail'),
     subject: `${siteTitle} - Verify your email`,
     html: SSR.render('verifyEmail', { siteTitle, url, email: address })
   });

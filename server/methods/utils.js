@@ -21,8 +21,8 @@ export default function () {
         userId: this.userId
       });
 
-      const slackWebhookUrl = Settings.get('slackWebhookUrl');
-      const username = Settings.get('siteTitle', 'HomeDash');
+      const slackWebhookUrl = Settings.get('slack.webhookUrl');
+      const username = Settings.get('app.title', 'HomeDash');
 
       if (process.env.SLACK_ENABLED && slackWebhookUrl) {
         logger.info({ text }, 'Sending Slack message');

@@ -182,8 +182,8 @@ export default function () {
 
       const url = Meteor.absoluteUrl() + 'invite/' + options.token;
       const emailHtml = `email/templates/${options.role}-invitation.html`;
-      const siteTitle = Settings.get('siteTitle', 'OpenDash');
-      const adminEmail = Settings.get('adminEmail', 'invites@no-reply.com');
+      const siteTitle = Settings.get('app.title', 'OpenDash');
+      const adminEmail = Settings.get('app.adminEmail', 'invites@no-reply.com');
 
       SSR.compileTemplate('user-invite', Assets.getText(emailHtml));
       const content = SSR.render('user-invite', { siteTitle, url });

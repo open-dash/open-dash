@@ -6,7 +6,7 @@ import analytics from './snippet';
 export default function () {
   // initialize Segment libs and identify the user (once they're logged in)
   Tracker.autorun((c) => {
-    const segmentKey = Settings.get('segmentKey');
+    const segmentKey = Settings.get('segment.writeKey');
 
     if (segmentKey) {
       analytics.load(segmentKey);

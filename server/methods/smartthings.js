@@ -26,8 +26,8 @@ export default function () {
 
       check(code, String);
 
-      const clientId = Settings.get('smartthingsClientId');
-      const clientSecret = Settings.get('smartthingsClientSecret');
+      const clientId = Settings.get('smartthings.clientId');
+      const clientSecret = Settings.get('smartthings.clientSecret');
 
       if (!clientId || !clientSecret) {
         const msg = 'Missing SmartApp configuration';

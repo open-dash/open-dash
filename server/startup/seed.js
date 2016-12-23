@@ -1,9 +1,10 @@
+import _ from 'lodash';
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Settings } from '/lib/collections';
 import { Logger } from '/server/api';
 
-// Seed the database with some default data if none exists.
+// Seed the database with some default data
 
 export default function () {
   // bail if no settings exist
@@ -34,33 +35,12 @@ export default function () {
   }
 
   // Settings
-  const settings = Meteor.settings;
-
-  let defaultSettings = {};
-
-  if (settings) {
-    const allowedValues = [
-      'siteTitle',
-      'adminEmail',
-      'mailUrl',
-      'lifxApiKey',
-      'smartthingsClientId',
-      'smartthingsClientSecret',
-      'awsKey',
-      'awsSecret',
-      'awsRegion',
-      'kadiraAppId',
-      'kadiraAppSecret',
-      'segmentKey',
-      'slackWebhookUrl'
-    ];
-    defaultSettings = _.pick(settings, allowedValues);
-  }
+  let defaultSettings = _.omit(Meteor.settings, ['defaultUsers', 'public']);
 
   // create default settings if none exist
   if (Settings.find().count() < 1) {
-    if (!defaultSettings.siteTitle) {
-      defaultSettings.siteTitle = 'OpenDash';
+    if (!defaultSettings.app || defaultSettings.app.title) {
+      defaultSettings = _.set(defaultSettings, 'app.title', 'OpenDash');
     }
 
     Settings.insert(defaultSettings);
@@ -74,6 +54,7 @@ export default function () {
       const s = settingsDoc;
 
       // update any empty settings fields with values from settings.json
+      // TODO: make this updater work with nested settings
       for (const key in defaultSettings) {
         if ({}.hasOwnProperty.call(defaultSettings, key)) {
           if (!s[key] && !_.isBoolean(s[key]) && !!defaultSettings[key]) {
@@ -86,7 +67,7 @@ export default function () {
 
       // make the update if anything changed
       if (settingsChanged) {
-        const updatedSettings = _.omit(s, ['_id', 'createdAt', 'updatedAt']);
+        const updatedSettings = _.omit(s, ['_id', 'defaultUsers', 'createdAt', 'updatedAt']);
 
         Settings.update({ _id: s._id }, {
           $set: updatedSettings

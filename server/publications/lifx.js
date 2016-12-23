@@ -10,7 +10,7 @@ export default function () {
       return this.ready();
     }
 
-    if (!Settings.get('lifxApiKey')) {
+    if (!Settings.get('lifx.apiKey')) {
       return this.ready();
     }
 

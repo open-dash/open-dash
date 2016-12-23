@@ -39,7 +39,7 @@ if (logglyToken && logglySubdomain) {
   streams.push(logglyStream);
 }
 
-const name = Settings.get('siteTitle', 'OpenDash');
+const name = Settings.get('app.title', 'OpenDash');
 
 // create default logger instance
 const Logger = bunyan.createLogger({

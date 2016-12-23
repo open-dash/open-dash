@@ -11,7 +11,7 @@ import { send } from './actions';
  */
 export function notifyUsersInRole(role = 'superuser', subject, html) {
   // set the "from" email
-  const from = Settings.get('adminEmail', 'no-reply@localhost');
+  const from = Settings.get('app.adminEmail', 'no-reply@localhost');
 
   // email all admins
   Users.find({ roles: { $in: [role] } }).forEach((admin) => {

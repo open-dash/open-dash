@@ -4,7 +4,7 @@ import Layout from '../layouts/login_layout';
 
 export const composer = ({ context }, onData) => {
   const { Settings } = context();
-  const siteTitle = Settings.get('siteTitle', 'HomeDash');
+  const siteTitle = Settings.get('app.title', 'HomeDash');
   onData(null, { siteTitle });
 };
 

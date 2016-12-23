@@ -8,7 +8,7 @@ export default class Lifx {
     this.apiLightsUrl = 'https://api.lifx.com/v1/lights/';
     this.apiScenesUrl = 'https://api.lifx.com/v1/scenes/';
 
-    this.apiKey = apiKey || Settings.get('lifxApiKey');
+    this.apiKey = apiKey || Settings.get('lifx.apiKey');
 
     if (!this.apiKey) {
       throw new Meteor.Error('Missing Lifx API key.');

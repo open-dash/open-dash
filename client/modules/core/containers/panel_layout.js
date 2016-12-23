@@ -7,7 +7,7 @@ export const composer = ({ context }, onData) => {
   const { Settings } = Collections;
 
   if (Meteor.subscribe('users-count').ready()) {
-    const siteTitle = Settings.get('siteTitle', 'HomeDash');
+    const siteTitle = Settings.get('app.title', 'HomeDash');
     const user = Meteor.user();
     if (!user && !Meteor.loggingIn()) {
       return FlowRouter.redirect('/login');
