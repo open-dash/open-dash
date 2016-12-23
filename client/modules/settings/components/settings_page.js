@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Grid, Row, Col, Panel } from 'react-bootstrap';
+import { Grid, Row, Col, Panel, Button } from 'react-bootstrap';
 import Helmet from 'react-helmet';
 import _ from 'lodash';
 import { FieldGroup } from '/client/modules/core/components/ui';
@@ -114,7 +114,7 @@ class SettingsPage extends Component {
 
                 <Row>
                   <div className='form-group'>
-                    <button type='submit' className='btn btn-primary pull-right'>Save</button>
+                    <Button type='submit' bsStyle='primary' className='pull-right'>Save</Button>
                   </div>
                 </Row>
 
