@@ -11,10 +11,10 @@ class SettingsPage extends Component {
     update: PropTypes.func.isRequired
   }
 
-  constructor(props) {
+  constructor(props = {}) {
     super(props);
 
-    this.state = props.settings || {};
+    this.state = props.settings;
 
     this.handleStateChange = this.handleStateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
