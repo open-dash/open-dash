@@ -180,23 +180,26 @@ export default function () {
 
       Invitations.insert(options);
 
-      const url = Meteor.absoluteUrl() + 'invite/' + options.token;
-      const emailHtml = `email/templates/${options.role}-invitation.html`;
+      const url = Meteor.absoluteUrl(`invite/${options.token}`);
+      const emailTemplate = `email/templates/${options.role}-invitation.html`;
       const siteTitle = Settings.get('app.title', 'OpenDash');
       const adminEmail = Settings.get('app.adminEmail', 'invites@no-reply.com');
 
-      SSR.compileTemplate('user-invite', Assets.getText(emailHtml));
-      const content = SSR.render('user-invite', { siteTitle, url });
+      let html;
+      try {
+        html = Email.renderTemplate(emailTemplate, { siteTitle, url });
+      } catch(e) {
+        Invitations.remove(inviteId);
+        const msg = 'Error finding email template';
+        logger.error(e, msg);
+        throw new Meteor.Error('template-not-found', msg);
+      }
 
-      const emailOpts = {
+      Email.send({
         to: options.email,
         from: `${siteTitle} <${adminEmail}>`,
         subject: `You're invited to ${siteTitle}!`,
-        html: content
-      };
-
-      Meteor.defer(() => {
-        Email.send(emailOpts);
+        html
       });
 
       logger.info(`New user invited: ${options.email}`);
