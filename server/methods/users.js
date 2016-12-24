@@ -34,7 +34,7 @@ export default function () {
       if (options.userId !== this.userId && !isAdmin) {
         const err = 'AUTH ERROR: Action not allowed';
         logger.error(err);
-        throw new Meteor.Error('action-not-allowed', err);
+        throw new Meteor.Error('auth-error', err);
       }
 
       const id = options.userId || this.userId;
@@ -79,7 +79,7 @@ export default function () {
       if (!Roles.userIsInRole(this.userId, 'admin')) {
         const err = 'AUTH ERROR: Invalid credentials';
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('auth-error', err);
       }
 
       check(options, {
@@ -121,7 +121,7 @@ export default function () {
       if (!Roles.userIsInRole(this.userId, 'admin')) {
         const err = 'AUTH ERROR: Invalid credentials';
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('auth-error', err);
       }
 
       check(options, {
@@ -159,7 +159,7 @@ export default function () {
       if (!Roles.userIsInRole(this.userId, 'admin')) {
         const err = 'AUTH ERROR: Invalid credentials';
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('auth-error', err);
       }
 
       check(options, {
@@ -225,20 +225,20 @@ export default function () {
       if (!invite) {
         const err = 'Invitation not found.';
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('not-found', err);
       }
 
       // invite can only be used once
       if (invite.accepted) {
         const err = 'Invitation has already been used.';
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('invite-used', err);
       }
 
       if (Accounts.findUserByUsername(options.username)) {
         const msg = 'Username already exists';
         logger.warn(msg);
-        throw new Meteor.Error(msg);
+        throw new Meteor.Error('username-exists', msg);
       }
 
       const userId = Accounts.createUser({
@@ -255,9 +255,9 @@ export default function () {
         $set: {
           accepted: true,
           acceptedDate: new Date(),
-          userId: userId
+          userId
         }
-      }, (err, res) => {
+      }, (err) => {
         if (!err) {
           logger.info(`Invitation successfully accepted by ${invite.email}`);
         }
@@ -278,7 +278,7 @@ export default function () {
       if (!Roles.userIsInRole(this.userId, 'admin')) {
         const err = 'AUTH ERROR: Invalid credentials';
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('auth-error', err);
       }
 
       check(inviteId, String);
@@ -287,7 +287,7 @@ export default function () {
         Invitations.remove(inviteId);
       } catch (err) {
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('delete-error', err);
       }
 
       logger.info(`Successfully removed invitation: ${inviteId}`);
@@ -307,14 +307,14 @@ export default function () {
       if (!Roles.userIsInRole(this.userId, 'admin')) {
         const err = 'AUTH ERROR: Invalid credentials';
         logger.error(err);
-        throw new Meteor.Error(err);
+        throw new Meteor.Error('auth-error', err);
       }
 
       check(userId, String);
 
       this.unblock();
 
-      Invitations.remove({ userId: userId });
+      Invitations.remove({ userId });
       Users.remove(userId);
 
       logger.info(`User ${userId} succesfully deleted.`);

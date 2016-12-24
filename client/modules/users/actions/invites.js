@@ -11,7 +11,7 @@ export default {
     if (options.email && options.role) {
       Meteor.call('users/sendInvite', options, (err) => {
         if (err) {
-          Notify.error(err.error);
+          Notify.error(err.reason);
         } else {
           Notify.success('Invitation sent!');
         }
@@ -46,7 +46,7 @@ export default {
 
     Meteor.call('activateUserInvite', { username, email, password, inviteToken }, (err) => {
       if (err) {
-        return LocalState.set('ACTIVATE_INVITE_ERROR', err.error);
+        return LocalState.set('ACTIVATE_INVITE_ERROR', err.reason);
       }
       Meteor.loginWithPassword(email, password, (error) => {
         if (!error) {
