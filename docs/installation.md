@@ -67,10 +67,10 @@ curl https://install.meteor.com/ | sh
 
 **Windows Build Tools 2015**
 
-(requires admin priveledges to install, open a command prompt as an Administrator)
+<https://github.com/felixrieseberg/windows-build-tools>
 
 ```sh
-# https://github.com/felixrieseberg/windows-build-tools
+# requires admin privileges to install, open a command prompt as an Administrator
 
 npm install -g windows-build-tools
 ```
