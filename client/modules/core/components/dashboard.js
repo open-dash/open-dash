@@ -7,11 +7,7 @@ const Dashboard = () => (
   <div>
     <Helmet title='Dashboard'/>
     <Grid fluid>
-      <Row>
-        <Col sm={12} md={3}>
-          <SmartThingsConnect />
-        </Col>
-      </Row>
+      <SmartThingsConnect />
     </Grid>
   </div>
 );

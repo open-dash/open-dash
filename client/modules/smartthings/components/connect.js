@@ -1,17 +1,27 @@
 import React, { PropTypes } from 'react';
-import { Panel, Button } from 'react-bootstrap';
+import { Row, Col, Panel, Button } from 'react-bootstrap';
 
 const SmartThingsConnect = ({ authUrl, smartthingsConnected }) => (
-  <Panel>
-    {smartthingsConnected ?
-      <div className='text-center'>
-        <h4>SmartThings Connected!</h4>
-        <hr/>
-        <a href='/smartthings'>View your devices</a>
-      </div>
-      : <a href={authUrl}><Button bsStyle='primary'>Connect to SmartThings</Button></a>
-    }
-  </Panel>
+  <Row>
+    <Col md={3}>
+      <Panel>
+        {smartthingsConnected &&
+          <Row className='text-center' style={{ marginBottom: '2rem' }}>
+            <h4>SmartThings Connected!</h4>
+            <hr/>
+            <a href='/smartthings'>View your devices</a>
+          </Row>}
+
+          <Row className='text-center'>
+              <a href={authUrl}>
+                {smartthingsConnected ?
+                'Re-Authenticate with SmartThings' :
+                <Button bsStyle='primary'>Connect to SmartThings</Button>}
+              </a>
+          </Row>
+      </Panel>
+    </Col>
+  </Row>
 );
 
 SmartThingsConnect.propTypes = {
