@@ -19,7 +19,9 @@ function getTrackerLoader(reactiveMapper) {
     });
 
     return () => {
-      if (typeof trackerCleanup === 'function') trackerCleanup();
+      if (typeof trackerCleanup === 'function') {
+        trackerCleanup();
+      }
       return handler.stop();
     };
   };
