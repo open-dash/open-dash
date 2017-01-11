@@ -8,13 +8,15 @@ export const composer = ({ context }, onData) => {
 
   if (Meteor.subscribe('settings').ready()) {
     const settings = Settings.findOne();
-    onData(null, { settings });
+    const user = Meteor.user();
+    onData(null, { settings, user });
   }
 };
 
 export const depsMapper = (context, actions) => ({
   context: () => context,
-  update: actions.settings.update
+  update: actions.settings.update,
+  userIsInRole: actions.settings.userIsInRole
 });
 
 export default merge(

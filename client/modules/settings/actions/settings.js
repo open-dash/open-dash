@@ -1,5 +1,9 @@
 export default {
 
+  userIsInRole({ Roles }, user, role) {
+    return Roles.userIsInRole(user, role);
+  },
+
   update({ Meteor, Notify }, settings) {
     Meteor.call('settings/update', settings, (err) => {
       if (err) {
