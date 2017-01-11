@@ -8,7 +8,7 @@ const SmartThingsDashboard = ({ smartthingsConnected }) => (
     <Helmet title='SmartThings Devices'/>
     {smartthingsConnected ?
       <div>
-        <h4 className='text-center'>SmartThings Devices</h4>
+        <h3 className='text-center'>SmartThings Devices</h3>
         <hr/>
         <SmartThingsDevices/>
       </div>

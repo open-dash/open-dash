@@ -9,7 +9,7 @@ const SmartThingsConnect = ({ authUrl, smartthingsConnected }) => (
           <Row className='text-center' style={{ marginBottom: '2rem' }}>
             <h4>SmartThings Connected!</h4>
             <hr/>
-            <a href='/smartthings'>View your devices</a>
+            <a href='/devices'>View your devices</a>
           </Row>}
 
           <Row className='text-center'>

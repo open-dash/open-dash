@@ -6,7 +6,19 @@ import { Logger } from '/server/api';
 export default function () {
 
   Meteor.publish('smartthings-devices', function () {
-    if (!Roles.userIsInRole(this.userId, 'admin')) {
+    if (!Roles.userIsInRole(this.userId, ['admin', 'manager'])) {
+      return this.ready();
+    }
+
+    return Devices.find({
+      provider: 'SmartThings',
+      userId: this.userId
+    });
+  });
+
+
+  Meteor.publish('smartthings-poll', function () {
+    if (!Roles.userIsInRole(this.userId, ['admin', 'manager'])) {
       return this.ready();
     }
 
@@ -15,7 +27,7 @@ export default function () {
     const { endpoint, token } = user.services.smartthings;
 
     if (!endpoint || !token) {
-      Logger.warn('Endpoint and token required for SmartThings publication');
+      Logger.warn('Endpoint and token required for SmartThings poll publication');
       return this.ready();
     }
 
@@ -51,17 +63,14 @@ export default function () {
     // get the state immediately
     poll();
 
-    // then poll the API every 30 secs
-    const interval = Meteor.setInterval(poll, 30000);
+    // then poll the API every 60 secs
+    const interval = Meteor.setInterval(poll, 60000);
 
     this.onStop(() => {
       Meteor.clearInterval(interval);
     });
 
-    return Devices.find({
-      provider: 'SmartThings',
-      userId: this.userId
-    });
+    return this.ready();
   });
 
 }
