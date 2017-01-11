@@ -10,10 +10,12 @@ export const composer = ({ context }, onData) => {
     const devices = Devices.find({
       provider: 'SmartThings',
       userId: Meteor.userId()
-    }).fetch();
+    }).fetch() || [];
 
     onData(null, { devices });
   }
+
+  Meteor.subscribe('smartthings-poll');
 };
 
 export const depsMapper = (context, actions) => ({
