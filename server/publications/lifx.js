@@ -49,7 +49,7 @@ export default function () {
       Meteor.clearInterval(interval);
     });
 
-    return Devices.find();
+    return Devices.find({ userId: this.userId, provider: 'Lifx' });
   });
 
 }
