@@ -1,6 +1,6 @@
 {
   "name": "OpenDash",
-  "version": "0.3.16",
+  "version": "0.3.18",
   "description": "A smart home dashboard",
   "scripts": {
     "test": "echo \"Error: no test specified\""
@@ -31,7 +31,7 @@
     "bunyan-loggly": "^1.1.0",
     "classnames": "^2.2.5",
     "core-js": "^2.4.1",
-    "date-fns": "^1.24.0",
+    "date-fns": "^1.25.0",
     "dom-ready": "^1.0.6",
     "domkit": "0.0.1",
     "font-awesome": "^4.7.0",
