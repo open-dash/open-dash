@@ -39,7 +39,7 @@ export default {
     });
   },
 
-  deleteUser({ Meteor, Alert }, userId) {
+  deleteUser({ Meteor, Alert, Notify }, userId) {
     Alert.confirm({
       title: 'Are you sure?',
       text: 'There\'s no going back!'
