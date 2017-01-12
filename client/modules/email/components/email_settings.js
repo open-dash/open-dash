@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Panel, Button } from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
 import { FieldGroup } from '/client/modules/core/components/ui';
 
 class EmailSettings extends Component {
@@ -91,7 +92,7 @@ class EmailSettings extends Component {
             defaultValue={settings.pass}
             onChange={this.handleStateChange}/>
           <Button bsStyle='primary' className='pull-right' type='submit' disabled={isSaving}>
-            {isSaving ? <i className='fa fa-refresh fa-spin'/> : 'Save'}
+            {isSaving ? <FontAwesome name='refresh' spin /> : 'Save'}
           </Button>
         </form>
       </Panel>
