@@ -4,6 +4,7 @@ import initContext from './configs/context';
 // modules
 import coreModule from './modules/core';
 import deviceModule from './modules/devices';
+import emailModule from './modules/email';
 import panelModule from './modules/panel';
 import settingsModule from './modules/settings';
 import smartthingsModule from './modules/smartthings';
@@ -16,6 +17,7 @@ const context = initContext();
 const app = new App(context);
 app.loadModule(coreModule);
 app.loadModule(deviceModule);
+app.loadModule(emailModule);
 app.loadModule(panelModule);
 app.loadModule(settingsModule);
 app.loadModule(smartthingsModule);
