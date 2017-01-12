@@ -1,4 +1,5 @@
 import color from './color';
+import email from './email';
 import lifx from './lifx';
 import settings from './settings';
 import smartthings from './smartthings';
@@ -7,6 +8,7 @@ import utils from './utils';
 
 export default function () {
   color();
+  email();
   lifx();
   settings();
   smartthings();

@@ -1,17 +1,17 @@
 import React from 'react';
 import { mount } from 'react-mounter';
 import MainLayout from '/client/modules/core/containers/main_layout';
-import SettingsPage from './components/settings_page';
+import EmailSettings from './containers/email_settings';
 
 
 export default function (injectDeps, { FlowRouter }) {
   const MainLayoutCtx = injectDeps(MainLayout);
 
-  FlowRouter.route('/settings', {
-    name: 'settings_page',
+  FlowRouter.route('/email', {
+    name: 'email_settings',
     action() {
       mount(MainLayoutCtx, {
-        content: () => (<SettingsPage />)
+        content: () => (<EmailSettings />)
       });
     }
   });
