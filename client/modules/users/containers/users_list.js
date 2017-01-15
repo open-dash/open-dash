@@ -10,9 +10,10 @@ export const composer = ({ context }, onData) => {
     const users = Users.find().fetch();
     const invites = Invitations.find().fetch();
 
+    const currentUserId = Meteor.userId();
+    const isAdmin = Roles.userIsInRole(currentUserId, 'superuser');
+
     const canDelete = (userId) => {
-      const currentUserId = Meteor.userId();
-      const isAdmin = Roles.userIsInRole(currentUserId, 'superuser');
       return isAdmin && userId !== currentUserId;
     };
 

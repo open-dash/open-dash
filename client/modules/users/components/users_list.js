@@ -1,3 +1,4 @@
+import { without } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 import { Grid, Row, Col, Panel, Table, Button, ButtonToolbar } from 'react-bootstrap';
@@ -53,7 +54,7 @@ class UsersList extends Component {
                           {user.emails[0].address}
                         </td>
                         <td className='text-center'>
-                          {user.roles.toString()}
+                          {without(user.roles, 'superuser').toString()}
                         </td>
                         <td>
                           <ButtonToolbar>

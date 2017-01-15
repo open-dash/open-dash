@@ -47,15 +47,26 @@ export default function () {
 
   // accounts and invites management page
   Meteor.publish('accounts-management', function () {
-    if (Roles.userIsInRole(this.userId, 'admin')) {
+    // only publish to admins and managers
+    if (Roles.userIsInRole(this.userId, ['manager', 'admin'])) {
+
+      // by default, only publish viewers (for managers)
+      let roles = ['viewer'];
+
+      // but publish all users for admins
+      if (Roles.userIsInRole(this.userId, ['admin'])) {
+        roles = ['viewer', 'manager', 'admin'];
+      }
+
       return [
-        Users.find({}, {
+        Users.find({ roles: { $in: roles } }, {
           fields: {
             'emails.address': 1,
-            roles: 1
+            roles: 1,
+            username: 1
           }
         }),
-        Invitations.find({ accepted: false }, {
+        Invitations.find({ accepted: false, role: { $in: roles } }, {
           fields: {
             email: 1,
             role: 1,
