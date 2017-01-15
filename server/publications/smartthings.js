@@ -24,6 +24,10 @@ export default function () {
 
     const user = Users.findOne(this.userId);
 
+    if (!user.services.smartthings) {
+      return this.ready();
+    }
+
     const { endpoint, token } = user.services.smartthings;
 
     if (!endpoint || !token) {
