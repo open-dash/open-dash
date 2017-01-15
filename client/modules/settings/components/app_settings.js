@@ -52,7 +52,6 @@ class AppSettings extends Component {
   render() {
     return (
       <Panel header={<h3 className='text-center'>App Settings</h3>} className='settings-page-form'>
-        {/* <h3 className='form-heading text-center'>App Settings</h3> */}
         <form onSubmit={this.handleSubmit}>
 
           {this.heading('General')}
