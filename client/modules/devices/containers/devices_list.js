@@ -6,15 +6,16 @@ export const composer = ({ context }, onData) => {
   const { Meteor, Devices } = context();
 
   if (Meteor.subscribe('devices').ready()) {
-
     const devices = Devices.find({
       userId: Meteor.userId()
     }).fetch() || [];
 
-    onData(null, { devices });
-  }
+    onData(null, { devices, waitingOnProviders: true });
 
-  Meteor.subscribe('smartthings-poll');
+    if (Meteor.subscribe('smartthings-poll').ready()) {
+      onData(null, { devices, waitingOnProviders: false });
+    }
+  }
 };
 
 export const depsMapper = (context, actions) => ({
