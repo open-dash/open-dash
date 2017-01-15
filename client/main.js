@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { App } from '/client/api';
 import initContext from './configs/context';
 

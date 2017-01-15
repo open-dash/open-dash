@@ -15,8 +15,9 @@ standard-minifier-js@1.2.1
 tracker@1.1.1
 
 alanning:roles
-aldeed:collection2
-aldeed:simple-schema
+aldeed:collection2-core
+aldeed:schema-index
+aldeed:schema-deny
 fourseven:scss
 jeremy:react-accounts-ui
 juliancwirko:postcss # replaces standard-minifier-css
