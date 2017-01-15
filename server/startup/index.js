@@ -1,9 +1,11 @@
+import email from './email';
 import jobs from './jobs';
 import security from './security';
 import seed from './seed';
 import { Settings } from '/lib/collections';
 
 export default function () {
+  email();
   jobs();
   security();
   seed();
