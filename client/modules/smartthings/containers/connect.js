@@ -10,7 +10,7 @@ export const composer = ({ context }, onData) => {
   authUrl += '?response_type=code';
   authUrl += '&scope=app';
   authUrl += `&client_id=${Settings.get('smartthings.clientId')}`;
-  authUrl += `&redirect_url=${encodeURIComponent(Meteor.absoluteUrl('auth/smartthings'))}`;
+  authUrl += `&redirect_uri=${encodeURIComponent(Meteor.absoluteUrl('auth/smartthings'))}`;
 
   const user = Meteor.user();
 
