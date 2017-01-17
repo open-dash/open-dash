@@ -5,7 +5,7 @@ import DevicesList from './containers/devices_list';
 import DevicePage from './containers/device_page';
 
 
-export default function (injectDeps, { FlowRouter, Meteor, Alert }) {
+export default function (injectDeps, { FlowRouter }) {
   const MainLayoutCtx = injectDeps(MainLayout);
 
   FlowRouter.route('/devices', {
