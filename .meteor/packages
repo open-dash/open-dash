@@ -24,6 +24,7 @@ juliancwirko:postcss # replaces standard-minifier-css
 kadira:flow-router
 meteorhacks:kadira
 meteorhacks:ssr
+mizzao:user-status
 tmeasday:publish-counts
 vsivsi:job-collection
 
