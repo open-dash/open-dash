@@ -27,7 +27,7 @@ export default function () {
   // Only allow 2 login attempts per connection per 5 seconds
   DDPRateLimiter.addRule({
     name(name) {
-      return _.contains(AUTH_METHODS, name);
+      return _.includes(AUTH_METHODS, name);
     },
 
     // Rate limit per connection ID
