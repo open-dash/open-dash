@@ -20,7 +20,7 @@ export default class Lifx {
   }
 
   /**
-   * Get a list of the available lists
+   * Get a list of the available lights
    * @param {String} selector - Lifx API selector string
    * @return {Object} returns the change status of lights that changed
    */
